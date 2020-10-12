@@ -12,7 +12,7 @@ struct HomeHeaderView: View {
         HStack {
             VStack(alignment: .leading, spacing: 6) {
                 Text("Covid-19 Tracker")
-                    .padding(EdgeInsets(top: 0, leading: 0, bottom: 48, trailing: 0))
+                    .padding(.bottom, 48)
                 
                 Button(action: {
                     print("Tapped")
