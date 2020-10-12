@@ -7,16 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF2829C82534CEC300911D5F /* HomeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2829C72534CEC300911D5F /* HomeHeaderView.swift */; };
 		BFBFAC86252CD44D00F9C0FD /* covid_swiftuiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBFAC85252CD44D00F9C0FD /* covid_swiftuiApp.swift */; };
-		BFBFAC88252CD44D00F9C0FD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBFAC87252CD44D00F9C0FD /* ContentView.swift */; };
+		BFBFAC88252CD44D00F9C0FD /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBFAC87252CD44D00F9C0FD /* HomeView.swift */; };
 		BFBFAC8A252CD44E00F9C0FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFBFAC89252CD44E00F9C0FD /* Assets.xcassets */; };
 		BFBFAC8D252CD44E00F9C0FD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFBFAC8C252CD44E00F9C0FD /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BF2829C72534CEC300911D5F /* HomeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderView.swift; sourceTree = "<group>"; };
 		BFBFAC82252CD44D00F9C0FD /* covid-swiftui.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "covid-swiftui.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFBFAC85252CD44D00F9C0FD /* covid_swiftuiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = covid_swiftuiApp.swift; sourceTree = "<group>"; };
-		BFBFAC87252CD44D00F9C0FD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		BFBFAC87252CD44D00F9C0FD /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		BFBFAC89252CD44E00F9C0FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BFBFAC8C252CD44E00F9C0FD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BFBFAC8E252CD44E00F9C0FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -53,7 +55,8 @@
 			isa = PBXGroup;
 			children = (
 				BFBFAC85252CD44D00F9C0FD /* covid_swiftuiApp.swift */,
-				BFBFAC87252CD44D00F9C0FD /* ContentView.swift */,
+				BFBFAC87252CD44D00F9C0FD /* HomeView.swift */,
+				BF2829C72534CEC300911D5F /* HomeHeaderView.swift */,
 				BFBFAC89252CD44E00F9C0FD /* Assets.xcassets */,
 				BFBFAC8E252CD44E00F9C0FD /* Info.plist */,
 				BFBFAC8B252CD44E00F9C0FD /* Preview Content */,
@@ -138,7 +141,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BFBFAC88252CD44D00F9C0FD /* ContentView.swift in Sources */,
+				BF2829C82534CEC300911D5F /* HomeHeaderView.swift in Sources */,
+				BFBFAC88252CD44D00F9C0FD /* HomeView.swift in Sources */,
 				BFBFAC86252CD44D00F9C0FD /* covid_swiftuiApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
