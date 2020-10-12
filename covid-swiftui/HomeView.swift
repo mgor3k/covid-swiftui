@@ -20,7 +20,16 @@ struct HomeView: View {
                 }
                 .frame(height: metrics.size.height * 0.3)
                 
-                Color.purple
+                ZStack {
+                    Color.purple
+                    VStack {
+                        StatsGridView(itemHeight: metrics.size.width * 0.3)
+                            .frame(width: metrics.size.width * 0.8)
+                            .offset(.init(width: 0, height: -36))
+                        Spacer()
+                    }
+
+                }
             }
             .edgesIgnoringSafeArea(.bottom)
         }
