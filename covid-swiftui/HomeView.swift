@@ -26,6 +26,7 @@ struct HomeView: View {
                         StatsGridView(itemHeight: metrics.size.width * 0.3)
                             .frame(width: metrics.size.width * 0.8)
                             .offset(.init(width: 0, height: -36))
+                        GlobalStatsList()
                         Spacer()
                     }
                 }
