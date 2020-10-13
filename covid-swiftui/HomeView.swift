@@ -28,7 +28,6 @@ struct HomeView: View {
                             .offset(.init(width: 0, height: -36))
                         Spacer()
                     }
-
                 }
             }
             .edgesIgnoringSafeArea(.bottom)
