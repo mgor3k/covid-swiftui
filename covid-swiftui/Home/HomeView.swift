@@ -15,7 +15,7 @@ struct HomeView: View {
                 ZStack {
                     Image("banner")
                         .resizable()
-                        .overlay(Color.black.opacity(0.7))
+                        .overlay(Color.black.opacity(0.3))
                         .padding(.top, -metrics.safeAreaInsets.top)
                     
                     HomeHeaderView(country: viewModel.selectedCountry)
