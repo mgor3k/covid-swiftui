@@ -13,8 +13,9 @@ struct HomeView: View {
         GeometryReader { metrics in
             VStack(spacing: 0) {
                 ZStack {
-                    // going to be a imageview
-                    Color.black
+                    Image("banner")
+                        .resizable()
+                        .overlay(Color.black.opacity(0.7))
                         .padding(.top, -metrics.safeAreaInsets.top)
                     
                     HomeHeaderView(country: viewModel.selectedCountry)
