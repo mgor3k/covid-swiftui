@@ -23,7 +23,7 @@ struct StatsGridView: View {
             ForEach(stats, id: \.title) { model in
                 StatsGridCell(title: model.title, total: model.value)
                     .frame(height: itemHeight)
-                    .background(Color.white.cornerRadius(10).shadow(color: Color.black.opacity(0.15), radius: 10))
+                    .background(Color.white.shadow(color: Color.black.opacity(0.15), radius: 10))
             }
         }
     }

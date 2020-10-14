@@ -22,16 +22,13 @@ struct HomeView: View {
                 }
                 .frame(height: metrics.size.height * 0.3)
                 
-                ZStack {
-                    Color.purple
-                    VStack {
-                        // get rid of the metrics in the init
-                        StatsGridView(stats: viewModel.stats, itemHeight: metrics.size.width * 0.3)
-                            .frame(width: metrics.size.width * 0.8)
-                            .offset(.init(width: 0, height: -36))
-                        GlobalStatsList()
-                        Spacer()
-                    }
+                VStack {
+                    // get rid of the metrics in the init
+                    StatsGridView(stats: viewModel.stats, itemHeight: metrics.size.width * 0.3)
+                        .frame(width: metrics.size.width * 0.8)
+                        .offset(.init(width: 0, height: -36))
+                    GlobalStatsList()
+                    Spacer()
                 }
             }
             .edgesIgnoringSafeArea(.bottom)
