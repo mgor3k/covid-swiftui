@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct HomeHeaderView: View {
+    let country: String
+    
     var body: some View {
         HStack {
             VStack(alignment: .leading, spacing: 6) {
@@ -17,7 +19,7 @@ struct HomeHeaderView: View {
                 Button(action: {
                     print("Tapped")
                 }, label: {
-                    Text("India")
+                    Text(country)
                         .font(.largeTitle)
                         .fontWeight(.bold)
                     
@@ -39,7 +41,7 @@ struct HomeHeaderView: View {
 
 struct HomeHeaderView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeHeaderView()
+        HomeHeaderView(country: "Test country")
             .background(Color.black)
             .previewLayout(.fixed(width: 400, height: 300))
     }

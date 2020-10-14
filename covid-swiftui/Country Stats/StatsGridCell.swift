@@ -22,6 +22,7 @@ struct StatsGridCell: View {
                         .foregroundColor(.red)
                         .font(.largeTitle)
                         .bold()
+                        .scaledToFill()
                 }
                 Spacer()
             }
