@@ -5,28 +5,33 @@
 import Foundation
 import Combine
 
-protocol StatsFetching {
-    func fetchStats(forCountry country: String) -> AnyPublisher<[CountryStats], Error>
-}
-
-enum StatsNetworkError: Error {
-    case invalidURL
+protocol StatsLoader {
+    func loadStats(forCountry country: String) -> AnyPublisher<[CountryStats], Error>
 }
 
 struct StatsService {
     private let baseURL = "https://api.covid19api.com"
+    private let session: URLSession
+    
+    init(session: URLSession = URLSession.shared) {
+        self.session = session
+    }
 }
 
-extension StatsService: StatsFetching {
-    func fetchStats(forCountry country: String) -> AnyPublisher<[CountryStats], Error> {
-        guard let url = URL(string: baseURL + "/total/country/" + country) else {
-            return Fail(error: StatsNetworkError.invalidURL).eraseToAnyPublisher()
-        }
-        return URLSession
-            .shared
-            .dataTaskPublisher(for: url)
+extension StatsService: StatsLoader {
+    func loadStats(forCountry country: String) -> AnyPublisher<[CountryStats], Error> {
+        session.dataTaskPublisher(for: resolveURL(forCountry: country))
             .map(\.data)
             .decode(type: [CountryStats].self, decoder: JSONDecoder())
             .eraseToAnyPublisher()
+    }
+}
+
+private extension StatsService {
+    func resolveURL(forCountry country: String) -> URL {
+        guard let url = URL(string: baseURL + "/total/country/" + country) else {
+            fatalError("Invalid URL")
+        }
+        return url
     }
 }

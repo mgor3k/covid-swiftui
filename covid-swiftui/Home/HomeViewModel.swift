@@ -6,20 +6,19 @@ import Foundation
 import Combine
 
 class HomeViewModel: ObservableObject {
-    private let service: StatsFetching
+    private let loader: StatsLoader
     private var subscriptions: [AnyCancellable] = []
     
     @Published var selectedCountry: String = "Poland"
     @Published var stats: [StatsModel]
     
-    init(service: StatsFetching = StatsService(), startingStats: [StatsModel] = []) {
-        self.service = service
+    init(loader: StatsLoader = StatsService(), startingStats: [StatsModel] = []) {
+        self.loader = loader
         
         // fetch from some cache
         self.stats = startingStats
         
-        service
-            .fetchStats(forCountry: selectedCountry)
+        loader.loadStats(forCountry: selectedCountry)
             .compactMap { $0.last }
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { status in

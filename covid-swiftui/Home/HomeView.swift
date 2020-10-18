@@ -37,8 +37,8 @@ struct HomeView: View {
 }
 
 struct ContentView_Previews: PreviewProvider {
-    struct MockStatsService: StatsFetching {
-        func fetchStats(forCountry country: String) -> AnyPublisher<[CountryStats], Error> {
+    struct MockStatsService: StatsLoader {
+        func loadStats(forCountry country: String) -> AnyPublisher<[CountryStats], Error> {
             Just([
                 CountryStats(confirmed: 50, deaths: 100, recovered: 50, active: 10)
             ]).setFailureType(to: Error.self).eraseToAnyPublisher()
@@ -46,7 +46,7 @@ struct ContentView_Previews: PreviewProvider {
     }
     
     static var previews: some View {
-        HomeView(viewModel: HomeViewModel(service: MockStatsService(),
+        HomeView(viewModel: HomeViewModel(loader: MockStatsService(),
                                           startingStats: [
                                             .init(title: "Confirmed", value: 60),
                                             .init(title: "Active", value: 50),
