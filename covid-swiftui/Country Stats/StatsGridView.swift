@@ -16,7 +16,7 @@ struct StatsGridView: View {
     var body: some View {
         LazyVGrid(columns: layout, spacing: 24) {
             ForEach(viewModel.items, id: \.title) {
-                StatsGridCell(title: $0.title, value: $0.value)
+                StatsGridCell(item: $0)
                     .frame(height: itemHeight)
                     .background(Color.white.shadow(color: Color.black.opacity(0.15), radius: 10))
             }

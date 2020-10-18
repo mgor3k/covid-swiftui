@@ -8,26 +8,19 @@
 import SwiftUI
 
 struct StatsGridCell: View {
-    let title: String
-    let value: Int?
-    
-    private var valueString: String {
-        if let value = value {
-            return "\(value)"
-        }
-        return "-"
-    }
+    let item: StatsGridElement
     
     var body: some View {
         VStack {
             HStack {
                 VStack(alignment: .leading, spacing: 16) {
-                    Text(title.uppercased())
+                    Text(item.title.uppercased())
+                        .font(.caption)
                         .bold()
                         .foregroundColor(.gray)
-                    Text(valueString)
-                        .foregroundColor(.red)
-                        .font(.largeTitle)
+                    Text("\(item.value)")
+                        .foregroundColor(item.valueColor)
+                        .font(.system(size: 28))
                         .bold()
                         .scaledToFill()
                 }
@@ -41,7 +34,7 @@ struct StatsGridCell: View {
 
 struct StatsGridCell_Previews: PreviewProvider {
     static var previews: some View {
-        StatsGridCell(title: "Confirmed", value: 50)
+        StatsGridCell(item: .confirmed(52))
             .previewLayout(.fixed(width: 300, height: 200))
     }
 }
