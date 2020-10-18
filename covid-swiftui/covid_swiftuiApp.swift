@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct covid_swiftuiApp: App {
+    let factory = Factory()
+    
     var body: some Scene {
         WindowGroup {
-            HomeView(viewModel: HomeViewModel())
+            HomeView(viewModel: factory.viewModels.home)
         }
     }
 }

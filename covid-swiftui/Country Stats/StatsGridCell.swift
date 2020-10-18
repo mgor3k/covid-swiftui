@@ -9,7 +9,14 @@ import SwiftUI
 
 struct StatsGridCell: View {
     let title: String
-    let total: Int
+    let value: Int?
+    
+    private var valueString: String {
+        if let value = value {
+            return "\(value)"
+        }
+        return "-"
+    }
     
     var body: some View {
         VStack {
@@ -18,7 +25,7 @@ struct StatsGridCell: View {
                     Text(title.uppercased())
                         .bold()
                         .foregroundColor(.gray)
-                    Text("\(total)")
+                    Text(valueString)
                         .foregroundColor(.red)
                         .font(.largeTitle)
                         .bold()
@@ -34,7 +41,7 @@ struct StatsGridCell: View {
 
 struct StatsGridCell_Previews: PreviewProvider {
     static var previews: some View {
-        StatsGridCell(title: "Confirmed", total: 50)
+        StatsGridCell(title: "Confirmed", value: 50)
             .previewLayout(.fixed(width: 300, height: 200))
     }
 }

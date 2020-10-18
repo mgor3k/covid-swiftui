@@ -4,24 +4,27 @@
 
 import SwiftUI
 
-struct StatsModel {
-    let title: String
-    let value: Int
-}
-
 struct StatsGridView: View {
     private let layout = [
         GridItem(.flexible(), spacing: 24),
         GridItem(.flexible(), spacing: 24)
     ]
     
-    let stats: [StatsModel]
+    let stats: CountryStats?
     let itemHeight: CGFloat
+    
+    // TODO: Looks like shit
+    private var models: [StatsModel] {
+        return [StatsModel.init(title: "Confirmed", value: stats?.confirmed ?? 0),
+         StatsModel.init(title: "Active", value: stats?.active ?? 0),
+         StatsModel.init(title: "Recovered", value: stats?.recovered ?? 0),
+         StatsModel.init(title: "Deaths", value: stats?.deaths ?? 0)]
+    }
     
     var body: some View {
         LazyVGrid(columns: layout, spacing: 24) {
-            ForEach(stats, id: \.title) { model in
-                StatsGridCell(title: model.title, total: model.value)
+            ForEach(models, id: \.title) { model in
+                StatsGridCell(title: model.title, value: model.value)
                     .frame(height: itemHeight)
                     .background(Color.white.shadow(color: Color.black.opacity(0.15), radius: 10))
             }
@@ -31,7 +34,7 @@ struct StatsGridView: View {
 
 struct StatsGridView_Previews: PreviewProvider {
     static var previews: some View {
-        StatsGridView(stats: [], itemHeight: 100)
+        StatsGridView(stats: .empty, itemHeight: 100)
             .previewLayout(.sizeThatFits)
     }
 }

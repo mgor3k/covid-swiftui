@@ -17,3 +17,7 @@ struct CountryStats: Decodable {
         case active = "Active"
     }
 }
+
+extension CountryStats {
+    static let empty: Self = .init(confirmed: 0, deaths: 0, recovered: 0, active: 0)
+}

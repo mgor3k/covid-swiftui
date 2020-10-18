@@ -6,32 +6,52 @@ import Foundation
 import Combine
 
 class HomeViewModel: ObservableObject {
-    private let loader: StatsLoader
-    private var subscriptions: [AnyCancellable] = []
+    private let fetcher: StatsLoading
+    private let cache: StatsCache
+    
+    private var subscriptions: Set<AnyCancellable> = []
     
     @Published var selectedCountry: String = "Poland"
-    @Published var stats: [StatsModel]
+    @Published var stats: CountryStats?
+    @Published var isLoading = false
     
-    init(loader: StatsLoader = StatsService(), startingStats: [StatsModel] = []) {
-        self.loader = loader
+    init(
+        fetcher: StatsLoading,
+        cache: StatsCache) {
+        self.fetcher = fetcher
+        self.cache = cache
         
-        // fetch from some cache
-        self.stats = startingStats
-        
-        loader.loadStats(forCountry: selectedCountry)
+        $selectedCountry
+            .flatMap { fetcher.loadStats(forCountry: $0) }
+            .handleEvents(receiveSubscription: { [weak self] _ in
+                self?.isLoading = true
+            }, receiveCompletion: { [weak self] _ in
+                self?.isLoading = false
+            })
             .compactMap { $0.last }
             .receive(on: DispatchQueue.main)
-            .sink(receiveCompletion: { status in
-                print(status)
-            }, receiveValue: { [weak self] stats in
-                var models: [StatsModel] = []
-                // make this a viewModel?
-                models.append(.init(title: "Confirmed", value: stats.confirmed))
-                models.append(.init(title: "Active", value: stats.active))
-                models.append(.init(title: "Recovered", value: stats.recovered))
-                models.append(.init(title: "Deaths", value: stats.deaths))
-                self?.stats = models
-            })
+            .replaceError(with: nil)
+            .sink { [weak self] stats in
+                self?.stats = stats
+            }
+            .store(in: &subscriptions)
+    }
+    
+    func loadInitialStats() {
+        let selectedCountry = self.selectedCountry
+        let fetcher = self.fetcher
+        
+        cache
+            .loadStats(forCountry: selectedCountry)
+            .catch { _ in
+                fetcher.loadStats(forCountry: selectedCountry)
+            }
+            .replaceError(with: [])
+            .compactMap { $0.last }
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] stats in
+                self?.stats = stats
+            }
             .store(in: &subscriptions)
     }
 }
