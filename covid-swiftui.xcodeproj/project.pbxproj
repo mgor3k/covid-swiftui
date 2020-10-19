@@ -80,6 +80,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BF6E771D253E1D740094FFFA /* Factories */ = {
+			isa = PBXGroup;
+			children = (
+				BFA9E15A253C802E00919AFC /* Factory.swift */,
+			);
+			path = Factories;
+			sourceTree = "<group>";
+		};
 		BF7A21A7253C77DD007D4D20 /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -162,11 +170,11 @@
 		BFBFAC84252CD44D00F9C0FD /* covid-swiftui */ = {
 			isa = PBXGroup;
 			children = (
+				BF6E771D253E1D740094FFFA /* Factories */,
 				BFCAAD67253E16A000FB3581 /* Models */,
 				BFBE7F0B253E138C00DC9A26 /* Services */,
 				BFBE7F18253E151000DC9A26 /* Components */,
 				BFBFAC85252CD44D00F9C0FD /* covid_swiftuiApp.swift */,
-				BFA9E15A253C802E00919AFC /* Factory.swift */,
 				BFBFAC89252CD44E00F9C0FD /* Assets.xcassets */,
 				BFBFAC8E252CD44E00F9C0FD /* Info.plist */,
 				BFBFAC8B252CD44E00F9C0FD /* Preview Content */,

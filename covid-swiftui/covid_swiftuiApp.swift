@@ -6,7 +6,7 @@ import SwiftUI
 
 @main
 struct covid_swiftuiApp: App {
-    let factory = Factory()
+    let factory = Factory.prod
     
     var body: some Scene {
         WindowGroup {

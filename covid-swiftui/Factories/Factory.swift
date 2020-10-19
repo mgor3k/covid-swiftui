@@ -3,13 +3,17 @@
 //
 
 import Foundation
+import Combine
 
 struct Factory {
     let viewModels: ViewModelFactory
     
-    init(services: ServiceFactoring = ServiceFactory()) {
+    init(services: ServiceFactoring) {
         viewModels = ViewModelFactory(services: services)
     }
+    
+    static let prod: Factory = .init(services: ServiceFactory())
+    static let preview: Factory = .init(services: PreviewServiceFactory())
 }
 
 protocol ServiceFactoring {
@@ -18,6 +22,15 @@ protocol ServiceFactoring {
 
 struct ServiceFactory: ServiceFactoring {
     let network: Networking = NetworkService(session: URLSession.shared)
+}
+
+struct PreviewServiceFactory: ServiceFactoring {
+    struct PreviewNetworking: Networking {
+        func fetchLastStats(forCountry country: String) -> AnyPublisher<CovidStats, Error> {
+            Just(CovidStats.empty).setFailureType(to: Error.self).eraseToAnyPublisher()
+        }
+    }
+    let network: Networking = PreviewNetworking()
 }
 
 struct ViewModelFactory {
