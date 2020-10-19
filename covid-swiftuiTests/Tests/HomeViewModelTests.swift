@@ -18,7 +18,7 @@ class HomeViewModelTests: XCTestCase {
     
     func test_startFetching() {
         let stats = CovidStats(confirmed: 50, deaths: 50, recovered: 50, active: 50)
-        let network = NetworkingMock(stats: stats)
+        let network = NetworkingMock(stats: stats, inputTiming: .delayed(0.1))
         let sut = HomeViewModel(network: network)
         
         var result: CovidStats?
@@ -35,8 +35,10 @@ class HomeViewModelTests: XCTestCase {
         
         sut.startFetching()
         
-        waitForExpectations(timeout: 0.5)
+        XCTAssertTrue(sut.isLoading)
+        waitForExpectations(timeout: 0.2)
         
         XCTAssertEqual(result, stats)
+        XCTAssertFalse(sut.isLoading)
     }
 }
