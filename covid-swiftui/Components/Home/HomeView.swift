@@ -33,24 +33,14 @@ struct HomeView: View {
             }
             .edgesIgnoringSafeArea(.bottom)
         }
+        .onAppear(perform: {
+            viewModel.startFetching()
+        })
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeView(viewModel: HomeViewModel(fetcher: Mock(), cache: Mock()))
-    }
-}
-
-extension ContentView_Previews {
-    struct Mock: StatsCache  {
-        func loadStats(forCountry country: String) -> AnyPublisher<[CountryStats], Error> {
-            Just([]).setFailureType(to: Error.self).eraseToAnyPublisher()
-        }
-        
-        func storeStats(_ stats: [CountryStats]) -> AnyPublisher<Void, Error> {
-            Just(()).setFailureType(to: Error.self)
-                .eraseToAnyPublisher()
-        }
-    }
-}
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        HomeView(viewModel: HomeViewModel(network: Mock()))
+//    }
+//}

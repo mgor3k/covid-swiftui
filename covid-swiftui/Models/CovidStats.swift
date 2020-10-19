@@ -4,7 +4,7 @@
 
 import Foundation
 
-struct CountryStats: Decodable {
+struct CovidStats: Decodable {
     let confirmed: Int
     let deaths: Int
     let recovered: Int
@@ -18,6 +18,8 @@ struct CountryStats: Decodable {
     }
 }
 
-extension CountryStats {
+extension CovidStats: Equatable {}
+
+extension CovidStats {
     static let empty: Self = .init(confirmed: 0, deaths: 0, recovered: 0, active: 0)
 }

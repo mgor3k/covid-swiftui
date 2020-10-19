@@ -13,19 +13,17 @@ struct Factory {
 }
 
 protocol ServiceFactoring {
-    var fetcher: StatsLoading { get }
-    var cache: StatsCache { get }
+    var network: Networking { get }
 }
 
 struct ServiceFactory: ServiceFactoring {
-    let fetcher: StatsLoading = StatsService()
-    let cache: StatsCache = CoreDataCache()
+    let network: Networking = NetworkService(session: URLSession.shared)
 }
 
 struct ViewModelFactory {
     let home: HomeViewModel
     
     init(services: ServiceFactoring) {
-        self.home = HomeViewModel(fetcher: services.fetcher, cache: services.cache)
+        self.home = HomeViewModel(network: services.network)
     }
 }

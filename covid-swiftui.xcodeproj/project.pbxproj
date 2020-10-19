@@ -12,20 +12,30 @@
 		BF2829D3253627D900911D5F /* StatsGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2829D2253627D900911D5F /* StatsGridCell.swift */; };
 		BF2829D625362FA300911D5F /* GlobalStatsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2829D525362FA300911D5F /* GlobalStatsList.swift */; };
 		BF2829D925362FDE00911D5F /* GlobalStatsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2829D825362FDE00911D5F /* GlobalStatsCell.swift */; };
-		BF7A219E253C5B65007D4D20 /* StatsLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7A219D253C5B65007D4D20 /* StatsLoading.swift */; };
-		BF7A21A1253C5B77007D4D20 /* StatsStoring.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7A21A0253C5B77007D4D20 /* StatsStoring.swift */; };
-		BF7A21A4253C7743007D4D20 /* CodeDataCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7A21A3253C7743007D4D20 /* CodeDataCache.swift */; };
+		BF7A219E253C5B65007D4D20 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7A219D253C5B65007D4D20 /* Networking.swift */; };
 		BFA9E15B253C802E00919AFC /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA9E15A253C802E00919AFC /* Factory.swift */; };
 		BFA9E15E253C82F800919AFC /* StatsGridElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA9E15D253C82F800919AFC /* StatsGridElement.swift */; };
 		BFA9E162253C83DB00919AFC /* StatsGridViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA9E161253C83DB00919AFC /* StatsGridViewModel.swift */; };
+		BFBE7EFD253E0EF700DC9A26 /* NetworkingMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBE7EFC253E0EF700DC9A26 /* NetworkingMock.swift */; };
 		BFBFAC86252CD44D00F9C0FD /* covid_swiftuiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBFAC85252CD44D00F9C0FD /* covid_swiftuiApp.swift */; };
 		BFBFAC88252CD44D00F9C0FD /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBFAC87252CD44D00F9C0FD /* HomeView.swift */; };
 		BFBFAC8A252CD44E00F9C0FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFBFAC89252CD44E00F9C0FD /* Assets.xcassets */; };
 		BFBFAC8D252CD44E00F9C0FD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFBFAC8C252CD44E00F9C0FD /* Preview Assets.xcassets */; };
-		BFC9903025375C5D00B96B3E /* StatsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC9902F25375C5D00B96B3E /* StatsService.swift */; };
+		BFC9903025375C5D00B96B3E /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC9902F25375C5D00B96B3E /* NetworkService.swift */; };
 		BFC990342537679100B96B3E /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC990332537679100B96B3E /* HomeViewModel.swift */; };
-		BFC9903E25376C6400B96B3E /* CountryStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC9903D25376C6400B96B3E /* CountryStats.swift */; };
+		BFC9903E25376C6400B96B3E /* CovidStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC9903D25376C6400B96B3E /* CovidStats.swift */; };
+		BFDDA535253E0E5C00F96B05 /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDDA534253E0E5C00F96B05 /* HomeViewModelTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BFDDA537253E0E5C00F96B05 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFBFAC7A252CD44D00F9C0FD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BFBFAC81252CD44D00F9C0FD;
+			remoteInfo = "covid-swiftui";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		BF2829C72534CEC300911D5F /* HomeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderView.swift; sourceTree = "<group>"; };
@@ -33,21 +43,23 @@
 		BF2829D2253627D900911D5F /* StatsGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsGridCell.swift; sourceTree = "<group>"; };
 		BF2829D525362FA300911D5F /* GlobalStatsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalStatsList.swift; sourceTree = "<group>"; };
 		BF2829D825362FDE00911D5F /* GlobalStatsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalStatsCell.swift; sourceTree = "<group>"; };
-		BF7A219D253C5B65007D4D20 /* StatsLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsLoading.swift; sourceTree = "<group>"; };
-		BF7A21A0253C5B77007D4D20 /* StatsStoring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsStoring.swift; sourceTree = "<group>"; };
-		BF7A21A3253C7743007D4D20 /* CodeDataCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeDataCache.swift; sourceTree = "<group>"; };
+		BF7A219D253C5B65007D4D20 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		BFA9E15A253C802E00919AFC /* Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Factory.swift; sourceTree = "<group>"; };
 		BFA9E15D253C82F800919AFC /* StatsGridElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsGridElement.swift; sourceTree = "<group>"; };
 		BFA9E161253C83DB00919AFC /* StatsGridViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsGridViewModel.swift; sourceTree = "<group>"; };
+		BFBE7EFC253E0EF700DC9A26 /* NetworkingMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingMock.swift; sourceTree = "<group>"; };
 		BFBFAC82252CD44D00F9C0FD /* covid-swiftui.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "covid-swiftui.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFBFAC85252CD44D00F9C0FD /* covid_swiftuiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = covid_swiftuiApp.swift; sourceTree = "<group>"; };
 		BFBFAC87252CD44D00F9C0FD /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		BFBFAC89252CD44E00F9C0FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BFBFAC8C252CD44E00F9C0FD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BFBFAC8E252CD44E00F9C0FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BFC9902F25375C5D00B96B3E /* StatsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsService.swift; sourceTree = "<group>"; };
+		BFC9902F25375C5D00B96B3E /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		BFC990332537679100B96B3E /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
-		BFC9903D25376C6400B96B3E /* CountryStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryStats.swift; sourceTree = "<group>"; };
+		BFC9903D25376C6400B96B3E /* CovidStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidStats.swift; sourceTree = "<group>"; };
+		BFDDA532253E0E5C00F96B05 /* covid-swiftuiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "covid-swiftuiTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BFDDA534253E0E5C00F96B05 /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
+		BFDDA536253E0E5C00F96B05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,23 +70,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BFDDA52F253E0E5C00F96B05 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		BF7A21A6253C77C5007D4D20 /* Persistance */ = {
-			isa = PBXGroup;
-			children = (
-				BF7A21A0253C5B77007D4D20 /* StatsStoring.swift */,
-				BF7A21A3253C7743007D4D20 /* CodeDataCache.swift */,
-			);
-			path = Persistance;
-			sourceTree = "<group>";
-		};
 		BF7A21A7253C77DD007D4D20 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				BF7A219D253C5B65007D4D20 /* StatsLoading.swift */,
-				BFC9902F25375C5D00B96B3E /* StatsService.swift */,
+				BFBE7F16253E14E100DC9A26 /* Protocols */,
+				BFC9902F25375C5D00B96B3E /* NetworkService.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -88,10 +98,54 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		BFBE7EFB253E0ED900DC9A26 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				BFBE7EFC253E0EF700DC9A26 /* NetworkingMock.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		BFBE7F04253E136400DC9A26 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				BFDDA534253E0E5C00F96B05 /* HomeViewModelTests.swift */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		BFBE7F0B253E138C00DC9A26 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				BF7A21A7253C77DD007D4D20 /* Network */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		BFBE7F16253E14E100DC9A26 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				BF7A219D253C5B65007D4D20 /* Networking.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		BFBE7F18253E151000DC9A26 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				BFC9903625376BBD00B96B3E /* Home */,
+				BFC9903A25376C0000B96B3E /* Header */,
+				BFC9903925376BDF00B96B3E /* Country Stats */,
+				BFC9903B25376C0800B96B3E /* Top Rank */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		BFBFAC79252CD44D00F9C0FD = {
 			isa = PBXGroup;
 			children = (
 				BFBFAC84252CD44D00F9C0FD /* covid-swiftui */,
+				BFDDA533253E0E5C00F96B05 /* covid-swiftuiTests */,
 				BFBFAC83252CD44D00F9C0FD /* Products */,
 			);
 			sourceTree = "<group>";
@@ -100,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				BFBFAC82252CD44D00F9C0FD /* covid-swiftui.app */,
+				BFDDA532253E0E5C00F96B05 /* covid-swiftuiTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -107,11 +162,9 @@
 		BFBFAC84252CD44D00F9C0FD /* covid-swiftui */ = {
 			isa = PBXGroup;
 			children = (
-				BFC9902E25375B8A00B96B3E /* API */,
-				BFC9903625376BBD00B96B3E /* Home */,
-				BFC9903A25376C0000B96B3E /* Header */,
-				BFC9903925376BDF00B96B3E /* Country Stats */,
-				BFC9903B25376C0800B96B3E /* Top Rank */,
+				BFCAAD67253E16A000FB3581 /* Models */,
+				BFBE7F0B253E138C00DC9A26 /* Services */,
+				BFBE7F18253E151000DC9A26 /* Components */,
 				BFBFAC85252CD44D00F9C0FD /* covid_swiftuiApp.swift */,
 				BFA9E15A253C802E00919AFC /* Factory.swift */,
 				BFBFAC89252CD44E00F9C0FD /* Assets.xcassets */,
@@ -127,16 +180,6 @@
 				BFBFAC8C252CD44E00F9C0FD /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		BFC9902E25375B8A00B96B3E /* API */ = {
-			isa = PBXGroup;
-			children = (
-				BFC9903C25376C4900B96B3E /* Model */,
-				BF7A21A7253C77DD007D4D20 /* Network */,
-				BF7A21A6253C77C5007D4D20 /* Persistance */,
-			);
-			path = API;
 			sourceTree = "<group>";
 		};
 		BFC9903625376BBD00B96B3E /* Home */ = {
@@ -175,12 +218,22 @@
 			path = "Top Rank";
 			sourceTree = "<group>";
 		};
-		BFC9903C25376C4900B96B3E /* Model */ = {
+		BFCAAD67253E16A000FB3581 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				BFC9903D25376C6400B96B3E /* CountryStats.swift */,
+				BFC9903D25376C6400B96B3E /* CovidStats.swift */,
 			);
-			path = Model;
+			path = Models;
+			sourceTree = "<group>";
+		};
+		BFDDA533253E0E5C00F96B05 /* covid-swiftuiTests */ = {
+			isa = PBXGroup;
+			children = (
+				BFBE7F04253E136400DC9A26 /* Tests */,
+				BFBE7EFB253E0ED900DC9A26 /* Services */,
+				BFDDA536253E0E5C00F96B05 /* Info.plist */,
+			);
+			path = "covid-swiftuiTests";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -203,6 +256,24 @@
 			productReference = BFBFAC82252CD44D00F9C0FD /* covid-swiftui.app */;
 			productType = "com.apple.product-type.application";
 		};
+		BFDDA531253E0E5C00F96B05 /* covid-swiftuiTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BFDDA53B253E0E5C00F96B05 /* Build configuration list for PBXNativeTarget "covid-swiftuiTests" */;
+			buildPhases = (
+				BFDDA52E253E0E5C00F96B05 /* Sources */,
+				BFDDA52F253E0E5C00F96B05 /* Frameworks */,
+				BFDDA530253E0E5C00F96B05 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BFDDA538253E0E5C00F96B05 /* PBXTargetDependency */,
+			);
+			name = "covid-swiftuiTests";
+			productName = "covid-swiftuiTests";
+			productReference = BFDDA532253E0E5C00F96B05 /* covid-swiftuiTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -214,6 +285,10 @@
 				TargetAttributes = {
 					BFBFAC81252CD44D00F9C0FD = {
 						CreatedOnToolsVersion = 12.0.1;
+					};
+					BFDDA531253E0E5C00F96B05 = {
+						CreatedOnToolsVersion = 12.0.1;
+						TestTargetID = BFBFAC81252CD44D00F9C0FD;
 					};
 				};
 			};
@@ -231,6 +306,7 @@
 			projectRoot = "";
 			targets = (
 				BFBFAC81252CD44D00F9C0FD /* covid-swiftui */,
+				BFDDA531253E0E5C00F96B05 /* covid-swiftuiTests */,
 			);
 		};
 /* End PBXProject section */
@@ -245,6 +321,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BFDDA530253E0E5C00F96B05 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -252,26 +335,41 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF7A21A4253C7743007D4D20 /* CodeDataCache.swift in Sources */,
-				BFC9903E25376C6400B96B3E /* CountryStats.swift in Sources */,
+				BFC9903E25376C6400B96B3E /* CovidStats.swift in Sources */,
 				BF2829C82534CEC300911D5F /* HomeHeaderView.swift in Sources */,
 				BFC990342537679100B96B3E /* HomeViewModel.swift in Sources */,
 				BFA9E162253C83DB00919AFC /* StatsGridViewModel.swift in Sources */,
 				BFA9E15E253C82F800919AFC /* StatsGridElement.swift in Sources */,
 				BF2829D3253627D900911D5F /* StatsGridCell.swift in Sources */,
-				BF7A219E253C5B65007D4D20 /* StatsLoading.swift in Sources */,
+				BF7A219E253C5B65007D4D20 /* Networking.swift in Sources */,
 				BFBFAC88252CD44D00F9C0FD /* HomeView.swift in Sources */,
-				BF7A21A1253C5B77007D4D20 /* StatsStoring.swift in Sources */,
 				BF2829CC2534D9E900911D5F /* StatsGridView.swift in Sources */,
 				BF2829D925362FDE00911D5F /* GlobalStatsCell.swift in Sources */,
-				BFC9903025375C5D00B96B3E /* StatsService.swift in Sources */,
+				BFC9903025375C5D00B96B3E /* NetworkService.swift in Sources */,
 				BF2829D625362FA300911D5F /* GlobalStatsList.swift in Sources */,
 				BFBFAC86252CD44D00F9C0FD /* covid_swiftuiApp.swift in Sources */,
 				BFA9E15B253C802E00919AFC /* Factory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BFDDA52E253E0E5C00F96B05 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BFDDA535253E0E5C00F96B05 /* HomeViewModelTests.swift in Sources */,
+				BFBE7EFD253E0EF700DC9A26 /* NetworkingMock.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BFDDA538253E0E5C00F96B05 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BFBFAC81252CD44D00F9C0FD /* covid-swiftui */;
+			targetProxy = BFDDA537253E0E5C00F96B05 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		BFBFAC8F252CD44E00F9C0FD /* Debug */ = {
@@ -432,6 +530,44 @@
 			};
 			name = Release;
 		};
+		BFDDA539253E0E5C00F96B05 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "covid-swiftuiTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gorecki.covid-swiftuiTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/covid-swiftui.app/covid-swiftui";
+			};
+			name = Debug;
+		};
+		BFDDA53A253E0E5C00F96B05 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "covid-swiftuiTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gorecki.covid-swiftuiTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/covid-swiftui.app/covid-swiftui";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -449,6 +585,15 @@
 			buildConfigurations = (
 				BFBFAC92252CD44E00F9C0FD /* Debug */,
 				BFBFAC93252CD44E00F9C0FD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BFDDA53B253E0E5C00F96B05 /* Build configuration list for PBXNativeTarget "covid-swiftuiTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BFDDA539253E0E5C00F96B05 /* Debug */,
+				BFDDA53A253E0E5C00F96B05 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
