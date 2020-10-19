@@ -1,7 +1,4 @@
 //
-//  covid_swiftuiApp.swift
-//  covid-swiftui
-//
 //  Created by Maciej Gorecki on 06/10/2020.
 //
 

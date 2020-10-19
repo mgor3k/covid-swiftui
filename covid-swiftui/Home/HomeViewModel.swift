@@ -22,36 +22,50 @@ class HomeViewModel: ObservableObject {
         self.cache = cache
         
         $selectedCountry
+            .dropFirst()
+            .map { _ in true }
+            .assign(to: \.isLoading, on: self)
+            .store(in: &subscriptions)
+        
+        $selectedCountry
+            .dropFirst()
             .flatMap { fetcher.loadStats(forCountry: $0) }
-            .handleEvents(receiveSubscription: { [weak self] _ in
-                self?.isLoading = true
-            }, receiveCompletion: { [weak self] _ in
-                self?.isLoading = false
-            })
             .compactMap { $0.last }
             .receive(on: DispatchQueue.main)
             .replaceError(with: nil)
-            .sink { [weak self] stats in
-                self?.stats = stats
-            }
+            .handleEvents(receiveOutput: { [weak self] _ in
+                self?.isLoading = false
+            })
+            .assign(to: \.stats, on: self)
             .store(in: &subscriptions)
+        
+        $isLoading
+            .sink(receiveValue: { value in
+                print(value)
+            })
+            .store(in: &subscriptions)
+        
+        loadInitialStats()
     }
     
     func loadInitialStats() {
         let selectedCountry = self.selectedCountry
         let fetcher = self.fetcher
         
+        isLoading = true
+        
         cache
             .loadStats(forCountry: selectedCountry)
             .catch { _ in
                 fetcher.loadStats(forCountry: selectedCountry)
             }
+            .handleEvents(receiveOutput: { [weak self] _ in
+                self?.isLoading = false
+            })
             .replaceError(with: [])
             .compactMap { $0.last }
             .receive(on: DispatchQueue.main)
-            .sink { [weak self] stats in
-                self?.stats = stats
-            }
+            .assign(to: \.stats, on: self)
             .store(in: &subscriptions)
     }
 }
