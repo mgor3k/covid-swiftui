@@ -24,7 +24,7 @@ struct HomeView: View {
                 
                 VStack {
                     // get rid of the metrics in the init
-                    StatsGridView(viewModel: .init(stats: viewModel.stats), itemHeight: metrics.size.width * 0.3)
+                    StatsGridView(viewModel: .init(stats: viewModel.stats), itemHeight: metrics.size.width * 0.3, isLoading: viewModel.isLoading)
                         .frame(width: metrics.size.width * 0.8)
                         .offset(.init(width: 0, height: -36))
                     GlobalStatsList()

@@ -12,13 +12,19 @@ struct StatsGridView: View {
     
     let viewModel: StatsGridViewModel
     let itemHeight: CGFloat
+    let isLoading: Bool
     
     var body: some View {
         LazyVGrid(columns: layout, spacing: 24) {
             ForEach(viewModel.items, id: \.title) {
-                StatsGridCell(item: $0)
-                    .frame(height: itemHeight)
-                    .background(Color.white.shadow(color: Color.black.opacity(0.15), radius: 10))
+                if isLoading {
+                    ShimmerView()
+                        .frame(height: itemHeight)
+                } else {
+                    StatsGridCell(item: $0)
+                        .frame(height: itemHeight)
+                        .background(Color.white.shadow(color: Color.black.opacity(0.15), radius: 10))
+                }
             }
         }
     }
@@ -26,7 +32,7 @@ struct StatsGridView: View {
 
 struct StatsGridView_Previews: PreviewProvider {
     static var previews: some View {
-        StatsGridView(viewModel: .init(stats: .empty), itemHeight: 100)
+        StatsGridView(viewModel: .init(stats: .empty), itemHeight: 100, isLoading: true)
             .previewLayout(.sizeThatFits)
     }
 }

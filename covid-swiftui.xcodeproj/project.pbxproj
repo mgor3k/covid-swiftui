@@ -12,6 +12,7 @@
 		BF2829D3253627D900911D5F /* StatsGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2829D2253627D900911D5F /* StatsGridCell.swift */; };
 		BF2829D625362FA300911D5F /* GlobalStatsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2829D525362FA300911D5F /* GlobalStatsList.swift */; };
 		BF2829D925362FDE00911D5F /* GlobalStatsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2829D825362FDE00911D5F /* GlobalStatsCell.swift */; };
+		BF7879DE2541ECE0006CFD69 /* ShimmerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7879DD2541ECE0006CFD69 /* ShimmerView.swift */; };
 		BF7A219E253C5B65007D4D20 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7A219D253C5B65007D4D20 /* Networking.swift */; };
 		BFA9E15B253C802E00919AFC /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA9E15A253C802E00919AFC /* Factory.swift */; };
 		BFA9E15E253C82F800919AFC /* StatsGridElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA9E15D253C82F800919AFC /* StatsGridElement.swift */; };
@@ -43,6 +44,7 @@
 		BF2829D2253627D900911D5F /* StatsGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsGridCell.swift; sourceTree = "<group>"; };
 		BF2829D525362FA300911D5F /* GlobalStatsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalStatsList.swift; sourceTree = "<group>"; };
 		BF2829D825362FDE00911D5F /* GlobalStatsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalStatsCell.swift; sourceTree = "<group>"; };
+		BF7879DD2541ECE0006CFD69 /* ShimmerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmerView.swift; sourceTree = "<group>"; };
 		BF7A219D253C5B65007D4D20 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		BFA9E15A253C802E00919AFC /* Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Factory.swift; sourceTree = "<group>"; };
 		BFA9E15D253C82F800919AFC /* StatsGridElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsGridElement.swift; sourceTree = "<group>"; };
@@ -86,6 +88,14 @@
 				BFA9E15A253C802E00919AFC /* Factory.swift */,
 			);
 			path = Factories;
+			sourceTree = "<group>";
+		};
+		BF7879DC2541ECD5006CFD69 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				BF7879DD2541ECE0006CFD69 /* ShimmerView.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		BF7A21A7253C77DD007D4D20 /* Network */ = {
@@ -141,6 +151,7 @@
 		BFBE7F18253E151000DC9A26 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				BF7879DC2541ECD5006CFD69 /* Common */,
 				BFC9903625376BBD00B96B3E /* Home */,
 				BFC9903A25376C0000B96B3E /* Header */,
 				BFC9903925376BDF00B96B3E /* Country Stats */,
@@ -355,6 +366,7 @@
 				BF2829D925362FDE00911D5F /* GlobalStatsCell.swift in Sources */,
 				BFC9903025375C5D00B96B3E /* NetworkService.swift in Sources */,
 				BF2829D625362FA300911D5F /* GlobalStatsList.swift in Sources */,
+				BF7879DE2541ECE0006CFD69 /* ShimmerView.swift in Sources */,
 				BFBFAC86252CD44D00F9C0FD /* covid_swiftuiApp.swift in Sources */,
 				BFA9E15B253C802E00919AFC /* Factory.swift in Sources */,
 			);
