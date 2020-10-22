@@ -18,7 +18,10 @@ struct HomeView: View {
                         .overlay(Color.black.opacity(0.3))
                         .padding(.top, -metrics.safeAreaInsets.top)
                     
-                    HomeHeaderView(country: viewModel.selectedCountry)
+                    HomeHeaderView(
+                        country: viewModel.selectedCountry,
+                        date: viewModel.lastUpdated
+                    )
                 }
                 .frame(height: metrics.size.height * 0.3)
                 
