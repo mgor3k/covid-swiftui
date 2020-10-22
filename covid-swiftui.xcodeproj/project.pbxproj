@@ -13,6 +13,9 @@
 		BF2829D625362FA300911D5F /* GlobalStatsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2829D525362FA300911D5F /* GlobalStatsList.swift */; };
 		BF2829D925362FDE00911D5F /* GlobalStatsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2829D825362FDE00911D5F /* GlobalStatsCell.swift */; };
 		BF7879DE2541ECE0006CFD69 /* ShimmerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7879DD2541ECE0006CFD69 /* ShimmerView.swift */; };
+		BF7879E42541F3B7006CFD69 /* HomeHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7879E32541F3B7006CFD69 /* HomeHeaderViewModel.swift */; };
+		BF7879E92541F416006CFD69 /* LastUpdateDateFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7879E82541F416006CFD69 /* LastUpdateDateFormatterTests.swift */; };
+		BF7879F32541FCAC006CFD69 /* LastUpdateDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7879F22541FCAC006CFD69 /* LastUpdateDateFormatter.swift */; };
 		BF7A219E253C5B65007D4D20 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7A219D253C5B65007D4D20 /* Networking.swift */; };
 		BFA9E15B253C802E00919AFC /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA9E15A253C802E00919AFC /* Factory.swift */; };
 		BFA9E15E253C82F800919AFC /* StatsGridElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA9E15D253C82F800919AFC /* StatsGridElement.swift */; };
@@ -45,6 +48,9 @@
 		BF2829D525362FA300911D5F /* GlobalStatsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalStatsList.swift; sourceTree = "<group>"; };
 		BF2829D825362FDE00911D5F /* GlobalStatsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalStatsCell.swift; sourceTree = "<group>"; };
 		BF7879DD2541ECE0006CFD69 /* ShimmerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmerView.swift; sourceTree = "<group>"; };
+		BF7879E32541F3B7006CFD69 /* HomeHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderViewModel.swift; sourceTree = "<group>"; };
+		BF7879E82541F416006CFD69 /* LastUpdateDateFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastUpdateDateFormatterTests.swift; sourceTree = "<group>"; };
+		BF7879F22541FCAC006CFD69 /* LastUpdateDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastUpdateDateFormatter.swift; sourceTree = "<group>"; };
 		BF7A219D253C5B65007D4D20 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		BFA9E15A253C802E00919AFC /* Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Factory.swift; sourceTree = "<group>"; };
 		BFA9E15D253C82F800919AFC /* StatsGridElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsGridElement.swift; sourceTree = "<group>"; };
@@ -93,9 +99,34 @@
 		BF7879DC2541ECD5006CFD69 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				BF7879DD2541ECE0006CFD69 /* ShimmerView.swift */,
+				BF7879F02541FC99006CFD69 /* Views */,
+				BF7879F12541FCA2006CFD69 /* Utils */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		BF7879E72541F405006CFD69 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				BF7879E82541F416006CFD69 /* LastUpdateDateFormatterTests.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		BF7879F02541FC99006CFD69 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BF7879DD2541ECE0006CFD69 /* ShimmerView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BF7879F12541FCA2006CFD69 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				BF7879F22541FCAC006CFD69 /* LastUpdateDateFormatter.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		BF7A21A7253C77DD007D4D20 /* Network */ = {
@@ -224,6 +255,7 @@
 			isa = PBXGroup;
 			children = (
 				BF2829C72534CEC300911D5F /* HomeHeaderView.swift */,
+				BF7879E32541F3B7006CFD69 /* HomeHeaderViewModel.swift */,
 			);
 			path = Header;
 			sourceTree = "<group>";
@@ -250,6 +282,7 @@
 			children = (
 				BFBE7F04253E136400DC9A26 /* Tests */,
 				BFBE7EFB253E0ED900DC9A26 /* Services */,
+				BF7879E72541F405006CFD69 /* Utils */,
 				BFDDA536253E0E5C00F96B05 /* Info.plist */,
 			);
 			path = "covid-swiftuiTests";
@@ -355,7 +388,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFC9903E25376C6400B96B3E /* CovidStats.swift in Sources */,
+				BF7879F32541FCAC006CFD69 /* LastUpdateDateFormatter.swift in Sources */,
 				BF2829C82534CEC300911D5F /* HomeHeaderView.swift in Sources */,
+				BF7879E42541F3B7006CFD69 /* HomeHeaderViewModel.swift in Sources */,
 				BFC990342537679100B96B3E /* HomeViewModel.swift in Sources */,
 				BFA9E162253C83DB00919AFC /* StatsGridViewModel.swift in Sources */,
 				BFA9E15E253C82F800919AFC /* StatsGridElement.swift in Sources */,
@@ -377,6 +412,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFDDA535253E0E5C00F96B05 /* HomeViewModelTests.swift in Sources */,
+				BF7879E92541F416006CFD69 /* LastUpdateDateFormatterTests.swift in Sources */,
 				BFBE7EFD253E0EF700DC9A26 /* NetworkingMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
