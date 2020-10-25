@@ -16,16 +16,12 @@ struct NetworkService {
 
 extension NetworkService: Networking {
     func fetchLastStats(forCountry country: String) -> AnyPublisher<CovidStats, Error> {
-        session.dataTaskPublisher(for: resolveURL(forCountry: country))
-            .map(\.data)
-            .decode(type: [CovidStats].self, decoder: JSONDecoder())
-            .compactMap { $0.last }
-            .eraseToAnyPublisher()
-    }
-}
-
-private extension NetworkService {
-    func resolveURL(forCountry country: String) -> URL {
-        URL(string: baseURL + "/total/country/" + country)!
+        session.dataTaskPublisher(
+            for: URL(string: baseURL + "/total/country/" + country)!
+        )
+        .map(\.data)
+        .decode(type: [CovidStats].self, decoder: JSONDecoder())
+        .compactMap { $0.last }
+        .eraseToAnyPublisher()
     }
 }
