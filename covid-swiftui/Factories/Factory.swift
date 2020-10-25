@@ -29,6 +29,10 @@ struct PreviewServiceFactory: ServiceFactoring {
         func fetchLastStats(forCountry country: String) -> AnyPublisher<CovidStats, Error> {
             Just(CovidStats.empty).setFailureType(to: Error.self).eraseToAnyPublisher()
         }
+        
+        func fetchCountries() -> AnyPublisher<[Country], Error> {
+            Just([]).setFailureType(to: Error.self).eraseToAnyPublisher()
+        }
     }
     let network: Networking = PreviewNetworking()
 }

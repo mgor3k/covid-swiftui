@@ -7,4 +7,5 @@ import Combine
 
 protocol Networking {
     func fetchLastStats(forCountry country: String) -> AnyPublisher<CovidStats, Error>
+    func fetchCountries() -> AnyPublisher<[Country], Error>
 }

@@ -25,6 +25,7 @@
 		BFBFAC88252CD44D00F9C0FD /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBFAC87252CD44D00F9C0FD /* HomeView.swift */; };
 		BFBFAC8A252CD44E00F9C0FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFBFAC89252CD44E00F9C0FD /* Assets.xcassets */; };
 		BFBFAC8D252CD44E00F9C0FD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFBFAC8C252CD44E00F9C0FD /* Preview Assets.xcassets */; };
+		BFBFCFFF2545FC0700062C1C /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBFCFFE2545FC0700062C1C /* Country.swift */; };
 		BFC9903025375C5D00B96B3E /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC9902F25375C5D00B96B3E /* NetworkService.swift */; };
 		BFC990342537679100B96B3E /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC990332537679100B96B3E /* HomeViewModel.swift */; };
 		BFC9903E25376C6400B96B3E /* CovidStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC9903D25376C6400B96B3E /* CovidStats.swift */; };
@@ -62,6 +63,7 @@
 		BFBFAC89252CD44E00F9C0FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BFBFAC8C252CD44E00F9C0FD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BFBFAC8E252CD44E00F9C0FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BFBFCFFE2545FC0700062C1C /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		BFC9902F25375C5D00B96B3E /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		BFC990332537679100B96B3E /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		BFC9903D25376C6400B96B3E /* CovidStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidStats.swift; sourceTree = "<group>"; };
@@ -273,6 +275,7 @@
 			isa = PBXGroup;
 			children = (
 				BFC9903D25376C6400B96B3E /* CovidStats.swift */,
+				BFBFCFFE2545FC0700062C1C /* Country.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -397,6 +400,7 @@
 				BF2829D3253627D900911D5F /* StatsGridCell.swift in Sources */,
 				BF7A219E253C5B65007D4D20 /* Networking.swift in Sources */,
 				BFBFAC88252CD44D00F9C0FD /* HomeView.swift in Sources */,
+				BFBFCFFF2545FC0700062C1C /* Country.swift in Sources */,
 				BF2829CC2534D9E900911D5F /* StatsGridView.swift in Sources */,
 				BF2829D925362FDE00911D5F /* GlobalStatsCell.swift in Sources */,
 				BFC9903025375C5D00B96B3E /* NetworkService.swift in Sources */,
