@@ -6,6 +6,7 @@ import SwiftUI
 
 struct HomeHeaderView: View {
     @ObservedObject var viewModel: HomeHeaderViewModel
+    @Binding var onTapped: Bool
     
     var body: some View {
         HStack {
@@ -14,7 +15,7 @@ struct HomeHeaderView: View {
                     .padding(.bottom, 48)
                 
                 Button(action: {
-                    print("Tapped")
+                    onTapped = true
                 }, label: {
                     Text(viewModel.country)
                         .font(.largeTitle)
@@ -38,8 +39,13 @@ struct HomeHeaderView: View {
 
 struct HomeHeaderView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeHeaderView(viewModel: .init(country: "Test", date: Date().addingTimeInterval(-3)))
-            .background(Color.black)
-            .previewLayout(.fixed(width: 400, height: 300))
+        HomeHeaderView(
+            viewModel: .init(
+                country: "Test",
+                date: Date().addingTimeInterval(-3)),
+            onTapped: .constant(false)
+        )
+        .background(Color.black)
+        .previewLayout(.fixed(width: 400, height: 300))
     }
 }

@@ -6,8 +6,8 @@ import SwiftUI
 import Combine
 
 struct HomeView: View {
-    @ObservedObject
-    var viewModel: HomeViewModel
+    @ObservedObject var viewModel: HomeViewModel
+    @State var isPresentingCountries = false
     
     var body: some View {
         GeometryReader { metrics in
@@ -21,7 +21,9 @@ struct HomeView: View {
                     HomeHeaderView(viewModel: .init(
                         country: viewModel.selectedCountry,
                         date: viewModel.lastUpdated
-                    ))
+                    ),
+                    onTapped: $isPresentingCountries
+                    )
                 }
                 .frame(height: metrics.size.height * 0.3)
                 
@@ -36,6 +38,9 @@ struct HomeView: View {
             }
             .edgesIgnoringSafeArea(.bottom)
         }
+        .sheet(isPresented: $isPresentingCountries, content: {
+            CountryPickerView()
+        })
         .onAppear(perform: {
             viewModel.startFetching()
         })

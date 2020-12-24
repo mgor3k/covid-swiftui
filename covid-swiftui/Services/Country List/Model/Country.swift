@@ -13,3 +13,7 @@ struct Country: Decodable {
         case slug = "Slug"
     }
 }
+
+extension Country: Identifiable {
+    var id: String { slug }
+}
