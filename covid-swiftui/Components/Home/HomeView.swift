@@ -6,8 +6,12 @@ import SwiftUI
 import Combine
 
 struct HomeView: View {
-    @ObservedObject var viewModel: HomeViewModel
+    @ObservedObject var store: HomeStore
     @State var isPresentingCountries = false
+    
+    init(store: HomeStore = .default) {
+        self.store = store
+    }
     
     var body: some View {
         GeometryReader { metrics in
@@ -19,8 +23,8 @@ struct HomeView: View {
                         .padding(.top, -metrics.safeAreaInsets.top)
                     
                     HomeHeaderView(viewModel: .init(
-                        country: viewModel.selectedCountry,
-                        date: viewModel.lastUpdated
+                        country: store.selectedCountry,
+                        date: store.lastUpdated
                     ),
                     onTapped: $isPresentingCountries
                     )
@@ -29,7 +33,7 @@ struct HomeView: View {
                 
                 VStack {
                     // get rid of the metrics in the init
-                    StatsGridView(viewModel: .init(stats: viewModel.stats), itemHeight: metrics.size.width * 0.3, isLoading: viewModel.isLoading)
+                    StatsGridView(viewModel: .init(stats: store.stats), itemHeight: metrics.size.width * 0.3, isLoading: store.isLoading)
                         .frame(width: metrics.size.width * 0.8)
                         .offset(.init(width: 0, height: -36))
                     GlobalStatsList()
@@ -42,13 +46,13 @@ struct HomeView: View {
             CountryPickerView()
         })
         .onAppear(perform: {
-            viewModel.startFetching()
+            store.startFetching()
         })
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView(viewModel: Factory.preview.viewModels.home)
+        HomeView(store: .mock)
     }
 }

@@ -11,12 +11,15 @@ extension URL {
     
     enum Endpoint {
         case countries
+        case totalStats(country: String)
     }
     
     static func url(for endpoint: Endpoint) -> URL {
         switch endpoint {
         case .countries:
             return URL(string: baseURL + "/countries")!
+        case .totalStats(let country):
+            return URL(string: baseURL + "/total/country/" + country)!
         }
     }
 }

@@ -6,11 +6,7 @@ import Foundation
 import Combine
 
 struct CountryListProvider: CountryListProviding {
-    private let session: URLSession
-    
-    init(session: URLSession) {
-        self.session = session
-    }
+    let session: URLSession
     
     func getCountryList() -> AnyPublisher<[Country], Error> {
         session

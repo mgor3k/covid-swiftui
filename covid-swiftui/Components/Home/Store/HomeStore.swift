@@ -5,8 +5,8 @@
 import Foundation
 import Combine
 
-class HomeViewModel: ObservableObject {
-    private let network: Networking
+class HomeStore: ObservableObject {
+    private let provider: TotalCountryStatsProviding
     
     private var subscriptions: Set<AnyCancellable> = []
     
@@ -18,8 +18,8 @@ class HomeViewModel: ObservableObject {
     var lastUpdated = Date()
     
     init(
-        network: Networking) {
-        self.network = network
+        provider: TotalCountryStatsProviding) {
+        self.provider = provider
         
         $selectedCountry
             .dropFirst()
@@ -33,7 +33,7 @@ class HomeViewModel: ObservableObject {
         
         $selectedCountry
             .flatMap { [unowned self] in
-                self.network.fetchLastStats(forCountry: $0)
+                self.provider.totalStats(for: $0)
             }
             .receive(on: DispatchQueue.main)
             .replaceError(with: .empty)

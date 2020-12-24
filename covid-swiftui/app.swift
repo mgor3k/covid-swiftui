@@ -5,12 +5,10 @@
 import SwiftUI
 
 @main
-struct covid_swiftuiApp: App {
-    let factory = Factory.prod
-    
+struct app: App {
     var body: some Scene {
         WindowGroup {
-            HomeView(viewModel: factory.viewModels.home)
+            HomeView()
         }
     }
 }
