@@ -11,7 +11,7 @@ class HomeStore: ObservableObject {
     private var subscriptions: Set<AnyCancellable> = []
     
     @Published var selectedCountry: String = "Poland"
-    @Published var stats: CovidStats = .empty
+    @Published var stats: TotalCountryStats = .empty
     @Published var isLoading = false
     
     // TODO: Should be part of the model?

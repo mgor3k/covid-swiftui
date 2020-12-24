@@ -10,12 +10,12 @@ struct TotalCountryStatsProvider: TotalCountryStatsProviding {
     
     func totalStats(
         for country: String
-    ) -> AnyPublisher<CovidStats, Error> {
+    ) -> AnyPublisher<TotalCountryStats, Error> {
         session.dataTaskPublisher(
             forEndpoint: .totalStats(country: country)
         )
         .map(\.data)
-        .decode(type: [CovidStats].self, decoder: JSONDecoder())
+        .decode(type: [TotalCountryStats].self, decoder: JSONDecoder())
         .compactMap { $0.last }
         .eraseToAnyPublisher()
     }

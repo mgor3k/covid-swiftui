@@ -17,7 +17,7 @@ extension HomeStore {
 
 extension HomeStore {
     struct MockProvider: TotalCountryStatsProviding {
-        func totalStats(for country: String) -> AnyPublisher<CovidStats, Error> {
+        func totalStats(for country: String) -> AnyPublisher<TotalCountryStats, Error> {
             Just(
                 .init(confirmed: 1, deaths: 2, recovered: 3, active: 4)
             )

@@ -7,7 +7,7 @@ import Foundation
 struct StatsGridViewModel {
     let items: [StatsGridElement]
     
-    init(stats: CovidStats?) {
+    init(stats: TotalCountryStats?) {
         self.items = [
             .confirmed(stats?.confirmed ?? 0),
             .active(stats?.active ?? 0),

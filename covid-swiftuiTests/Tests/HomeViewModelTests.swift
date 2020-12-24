@@ -13,15 +13,15 @@ class HomeViewModelTests: XCTestCase {
         let network = NetworkingMock()
         let sut = HomeViewModel(network: network)
         XCTAssertFalse(sut.isLoading)
-        XCTAssertEqual(sut.stats, CovidStats.empty)
+        XCTAssertEqual(sut.stats, TotalCountryStats.empty)
     }
     
     func test_startFetching() {
-        let stats = CovidStats(confirmed: 50, deaths: 50, recovered: 50, active: 50)
+        let stats = TotalCountryStats(confirmed: 50, deaths: 50, recovered: 50, active: 50)
         let network = NetworkingMock(stats: stats, inputTiming: .delayed(0.1))
         let sut = HomeViewModel(network: network)
         
-        var result: CovidStats?
+        var result: TotalCountryStats?
         
         let exp = expectation(description: "waiting for result")
         
