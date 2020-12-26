@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		BF17C4BB25976E7000730A81 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF17C4BA25976E7000730A81 /* SearchBar.swift */; };
+		BF17C4C12597777000730A81 /* SummaryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF17C4C02597777000730A81 /* SummaryResponse.swift */; };
+		BF17C4C62597783600730A81 /* SummaryProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF17C4C52597783600730A81 /* SummaryProviding.swift */; };
+		BF17C4CA2597787400730A81 /* SummaryProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF17C4C92597787400730A81 /* SummaryProvider.swift */; };
+		BF17C4D0259779FE00730A81 /* GlobalStatsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF17C4CF259779FE00730A81 /* GlobalStatsStore.swift */; };
+		BF17C4D525977A6300730A81 /* GlobalStatsStore+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF17C4D425977A6300730A81 /* GlobalStatsStore+.swift */; };
 		BF2829C82534CEC300911D5F /* HomeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2829C72534CEC300911D5F /* HomeHeaderView.swift */; };
 		BF2829CC2534D9E900911D5F /* StatsGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2829CB2534D9E900911D5F /* StatsGridView.swift */; };
 		BF2829D3253627D900911D5F /* StatsGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2829D2253627D900911D5F /* StatsGridCell.swift */; };
@@ -51,6 +56,11 @@
 
 /* Begin PBXFileReference section */
 		BF17C4BA25976E7000730A81 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		BF17C4C02597777000730A81 /* SummaryResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryResponse.swift; sourceTree = "<group>"; };
+		BF17C4C52597783600730A81 /* SummaryProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryProviding.swift; sourceTree = "<group>"; };
+		BF17C4C92597787400730A81 /* SummaryProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryProvider.swift; sourceTree = "<group>"; };
+		BF17C4CF259779FE00730A81 /* GlobalStatsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalStatsStore.swift; sourceTree = "<group>"; };
+		BF17C4D425977A6300730A81 /* GlobalStatsStore+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GlobalStatsStore+.swift"; sourceTree = "<group>"; };
 		BF2829C72534CEC300911D5F /* HomeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderView.swift; sourceTree = "<group>"; };
 		BF2829CB2534D9E900911D5F /* StatsGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsGridView.swift; sourceTree = "<group>"; };
 		BF2829D2253627D900911D5F /* StatsGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsGridCell.swift; sourceTree = "<group>"; };
@@ -104,6 +114,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BF17C4BE2597771B00730A81 /* Summary */ = {
+			isa = PBXGroup;
+			children = (
+				BF17C4BF2597774400730A81 /* Model */,
+				BF17C4C42597782B00730A81 /* Provider */,
+			);
+			path = Summary;
+			sourceTree = "<group>";
+		};
+		BF17C4BF2597774400730A81 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BF17C4C02597777000730A81 /* SummaryResponse.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BF17C4C42597782B00730A81 /* Provider */ = {
+			isa = PBXGroup;
+			children = (
+				BF17C4C52597783600730A81 /* SummaryProviding.swift */,
+				BF17C4C92597787400730A81 /* SummaryProvider.swift */,
+			);
+			path = Provider;
+			sourceTree = "<group>";
+		};
+		BF17C4D325977A5800730A81 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				BF17C4CF259779FE00730A81 /* GlobalStatsStore.swift */,
+				BF17C4D425977A6300730A81 /* GlobalStatsStore+.swift */,
+			);
+			path = Store;
+			sourceTree = "<group>";
+		};
 		BF6EAE542594E06B00FCC4A1 /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -177,6 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				BFFDB51A2594D1F7007E258B /* URL+.swift */,
+				BF17C4BE2597771B00730A81 /* Summary */,
 				BFE07A982594CF3D00AF393A /* Country List */,
 				BFFDB5402594DC4D007E258B /* Total Country Stats */,
 			);
@@ -264,6 +310,7 @@
 		BFC9903B25376C0800B96B3E /* Top Rank */ = {
 			isa = PBXGroup;
 			children = (
+				BF17C4D325977A5800730A81 /* Store */,
 				BF2829D525362FA300911D5F /* GlobalStatsList.swift */,
 				BF2829D825362FDE00911D5F /* GlobalStatsCell.swift */,
 			);
@@ -467,13 +514,18 @@
 				BF2829C82534CEC300911D5F /* HomeHeaderView.swift in Sources */,
 				BFFDB5442594DCFA007E258B /* TotalCountryStatsProviding.swift in Sources */,
 				BF17C4BB25976E7000730A81 /* SearchBar.swift in Sources */,
+				BF17C4D0259779FE00730A81 /* GlobalStatsStore.swift in Sources */,
 				BF7879E42541F3B7006CFD69 /* HomeHeaderViewModel.swift in Sources */,
 				BFE07A9A2594CF6E00AF393A /* CountryListProviding.swift in Sources */,
+				BF17C4C12597777000730A81 /* SummaryResponse.swift in Sources */,
+				BF17C4D525977A6300730A81 /* GlobalStatsStore+.swift in Sources */,
 				BFC990342537679100B96B3E /* HomeStore.swift in Sources */,
 				BFA9E162253C83DB00919AFC /* StatsGridViewModel.swift in Sources */,
 				BFA9E15E253C82F800919AFC /* StatsGridElement.swift in Sources */,
+				BF17C4C62597783600730A81 /* SummaryProviding.swift in Sources */,
 				BF2829D3253627D900911D5F /* StatsGridCell.swift in Sources */,
 				BFFDB5482594DD4D007E258B /* TotalCountryStatsProvider.swift in Sources */,
+				BF17C4CA2597787400730A81 /* SummaryProvider.swift in Sources */,
 				BFBFAC88252CD44D00F9C0FD /* HomeView.swift in Sources */,
 				BFBFCFFF2545FC0700062C1C /* Country.swift in Sources */,
 				BF2829CC2534D9E900911D5F /* StatsGridView.swift in Sources */,

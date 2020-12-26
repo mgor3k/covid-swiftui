@@ -5,16 +5,16 @@
 import SwiftUI
 
 struct GlobalStatsCell: View {
+    let item: SummaryCountry
+    
     var body: some View {
         HStack {
-            HStack {
-                Text("Poland")
-                Spacer()
-            }
-            Text("175")
-            Text("165")
-            Text("100")
-            Text("30")
+            Text(item.country)
+            Spacer()
+            Text("\(item.totalConfirmed)")
+            Text("☠️ \(item.totalDeath)")
+                .font(.caption2)
+                .bold()
         }
         .padding()
     }
@@ -22,7 +22,7 @@ struct GlobalStatsCell: View {
 
 struct GlobalStatsCell_Previews: PreviewProvider {
     static var previews: some View {
-        GlobalStatsCell()
+        GlobalStatsCell(item: .init(country: "Poland", totalConfirmed: 50, totalDeath: 100))
             .previewLayout(.fixed(width: 500, height: 100))
     }
 }

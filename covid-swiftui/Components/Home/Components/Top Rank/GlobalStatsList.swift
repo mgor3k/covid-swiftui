@@ -5,18 +5,29 @@
 import SwiftUI
 
 struct GlobalStatsList: View {
-    let items: [Int] = (0...20).map { $0 }
+    @ObservedObject var store: GlobalStatsStore
+    
+    init(store: GlobalStatsStore = .default) {
+        self.store = store
+    }
     
     var body: some View {
-        List(items, id: \.self) { item in
-            GlobalStatsCell()
+        VStack {
+            Text("Top 10 countries (by cases)")
+                .font(.caption)
+            List(store.countries, id: \.self) { item in
+                GlobalStatsCell(item: item)
+            }
         }
+        .onAppear(perform: {
+            store.fetchCountries()
+        })
     }
 }
 
 struct GlobalStatsList_Previews: PreviewProvider {
     static var previews: some View {
-        GlobalStatsList()
+        GlobalStatsList(store: .mock)
             .previewLayout(.fixed(width: 300, height: 600))
     }
 }

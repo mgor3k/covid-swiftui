@@ -11,6 +11,7 @@ extension URL {
     
     enum Endpoint {
         case countries
+        case summary
         case totalStats(country: String)
     }
     
@@ -18,6 +19,8 @@ extension URL {
         switch endpoint {
         case .countries:
             return URL(string: baseURL + "/countries")!
+        case .summary:
+            return URL(string: baseURL + "/summary")!
         case .totalStats(let country):
             return URL(string: baseURL + "/total/country/" + country)!
         }
