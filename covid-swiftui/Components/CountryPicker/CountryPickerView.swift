@@ -6,17 +6,21 @@ import SwiftUI
 
 struct CountryPickerView: View {
     @ObservedObject var store: CountryPickerStore
+    @Binding var selectedCountry: String
+    
     @Environment(\.presentationMode) var presentationMode
     
-    init(store: CountryPickerStore = .default) {
+    init(store: CountryPickerStore = .default,
+         selectedCountry: Binding<String>) {
         self.store = store
+        self._selectedCountry = selectedCountry
     }
     
     var body: some View {
         NavigationView {
             List(store.countries) { item in
                 Button(item.country) {
-                    print("Selected")
+                    selectedCountry = item.country
                     presentationMode.wrappedValue.dismiss()
                 }
                 .foregroundColor(.black)
@@ -32,6 +36,6 @@ struct CountryPickerView: View {
 
 struct CountryPickerView_Previews: PreviewProvider {
     static var previews: some View {
-        CountryPickerView(store: .mock)
+        CountryPickerView(store: .mock, selectedCountry: .constant(""))
     }
 }

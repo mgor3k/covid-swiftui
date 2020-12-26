@@ -14,9 +14,11 @@ struct TotalCountryStatsProvider: TotalCountryStatsProviding {
         session.dataTaskPublisher(
             forEndpoint: .totalStats(country: country)
         )
+        .print()
         .map(\.data)
         .decode(type: [TotalCountryStats].self, decoder: JSONDecoder())
         .compactMap { $0.last }
+        .replaceEmpty(with: .empty)
         .eraseToAnyPublisher()
     }
 }
