@@ -10,7 +10,12 @@ class CountryPickerStore: ObservableObject {
     private let provider: CountryListProviding
     private var subscriptions: Set<AnyCancellable> = []
     
-    @Published var countries: [Country] = []
+    @Published private var countries: [Country] = []
+    @Published var searchText = ""
+    
+    var filteredCountries: [Country] {
+        countries.filter { searchText.isEmpty ? true : $0.country.contains(searchText) }
+    }
     
     init(provider: CountryListProviding) {
         self.provider = provider

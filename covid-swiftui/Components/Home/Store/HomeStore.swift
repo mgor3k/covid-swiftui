@@ -10,7 +10,7 @@ class HomeStore: ObservableObject {
     
     private var subscriptions: Set<AnyCancellable> = []
     
-    @Published var selectedCountry: String = "Poland"
+    @Published var selectedCountry = Country(country: "Poland", slug: "poland") // TODO: Temporary
     @Published var stats: TotalCountryStats = .empty
     @Published var isLoading = false
     
@@ -33,7 +33,7 @@ class HomeStore: ObservableObject {
         
         $selectedCountry
             .flatMap { [unowned self] in
-                self.provider.totalStats(for: $0)
+                self.provider.totalStats(for: $0.slug)
             }
             .receive(on: DispatchQueue.main)
             .replaceError(with: .empty)

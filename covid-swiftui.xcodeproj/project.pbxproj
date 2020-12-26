@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF17C4BB25976E7000730A81 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF17C4BA25976E7000730A81 /* SearchBar.swift */; };
 		BF2829C82534CEC300911D5F /* HomeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2829C72534CEC300911D5F /* HomeHeaderView.swift */; };
 		BF2829CC2534D9E900911D5F /* StatsGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2829CB2534D9E900911D5F /* StatsGridView.swift */; };
 		BF2829D3253627D900911D5F /* StatsGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2829D2253627D900911D5F /* StatsGridCell.swift */; };
@@ -49,6 +50,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BF17C4BA25976E7000730A81 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		BF2829C72534CEC300911D5F /* HomeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderView.swift; sourceTree = "<group>"; };
 		BF2829CB2534D9E900911D5F /* StatsGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsGridView.swift; sourceTree = "<group>"; };
 		BF2829D2253627D900911D5F /* StatsGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsGridCell.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				BF7879DD2541ECE0006CFD69 /* ShimmerView.swift */,
+				BF17C4BA25976E7000730A81 /* SearchBar.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -463,6 +466,7 @@
 				BFFDB5282594D458007E258B /* CountryPickerStore+.swift in Sources */,
 				BF2829C82534CEC300911D5F /* HomeHeaderView.swift in Sources */,
 				BFFDB5442594DCFA007E258B /* TotalCountryStatsProviding.swift in Sources */,
+				BF17C4BB25976E7000730A81 /* SearchBar.swift in Sources */,
 				BF7879E42541F3B7006CFD69 /* HomeHeaderViewModel.swift in Sources */,
 				BFE07A9A2594CF6E00AF393A /* CountryListProviding.swift in Sources */,
 				BFC990342537679100B96B3E /* HomeStore.swift in Sources */,

@@ -23,7 +23,7 @@ struct HomeView: View {
                         .padding(.top, -metrics.safeAreaInsets.top)
                     
                     HomeHeaderView(viewModel: .init(
-                        country: store.selectedCountry,
+                        country: store.selectedCountry.country,
                         date: store.lastUpdated
                     ),
                     onTapped: $isPresentingCountries
