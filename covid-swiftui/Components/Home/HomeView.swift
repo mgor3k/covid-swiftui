@@ -26,7 +26,8 @@ struct HomeView: View {
                         country: store.selectedCountry.country,
                         date: store.lastUpdated
                     ),
-                    onTapped: $isPresentingCountries
+                    onTapped: $isPresentingCountries,
+                    onRefresh: { store.startFetching() }
                     )
                 }
                 .frame(height: metrics.size.height * 0.3)
