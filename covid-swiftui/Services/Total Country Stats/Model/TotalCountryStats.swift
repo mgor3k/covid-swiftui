@@ -10,6 +10,8 @@ struct TotalCountryStats: Decodable {
     let recovered: Int
     let active: Int
     
+    let updateDate = Date()
+    
     enum CodingKeys: String, CodingKey {
         case confirmed = "Confirmed"
         case deaths = "Deaths"

@@ -14,9 +14,6 @@ class HomeStore: ObservableObject {
     @Published var stats: TotalCountryStats = .empty
     @Published var isLoading = false
     
-    // TODO: Should be part of the model?
-    var lastUpdated = Date()
-    
     init(
         provider: TotalCountryStatsProviding) {
         self.provider = provider
@@ -39,7 +36,6 @@ class HomeStore: ObservableObject {
             .replaceError(with: .empty)
             .handleEvents(receiveOutput: { [weak self] _ in
                 self?.isLoading = false
-                self?.lastUpdated = Date()
             })
             .assign(to: \.stats, on: self)
             .store(in: &subscriptions)

@@ -17,7 +17,7 @@ struct HomeHeaderView: View {
                     .padding(.bottom, 48)
                 
                 Button(action: { onTapped = true }) {
-                    Text(viewModel.country)
+                    Text(viewModel.selectedCountry.country)
                         .font(.largeTitle)
                         .fontWeight(.bold)
                     
@@ -50,8 +50,9 @@ struct HomeHeaderView_Previews: PreviewProvider {
     static var previews: some View {
         HomeHeaderView(
             viewModel: .init(
-                country: "Test",
-                date: Date().addingTimeInterval(-3)),
+                selectedCountry: .init(country: "Poland", slug: "poland"),
+                lastUpdated: Date().addingTimeInterval(-3)
+            ),
             onTapped: .constant(false),
             onRefresh: {}
         )

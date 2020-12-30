@@ -23,8 +23,8 @@ struct HomeView: View {
                         .padding(.top, -metrics.safeAreaInsets.top)
                     
                     HomeHeaderView(viewModel: .init(
-                        country: store.selectedCountry.country,
-                        date: store.lastUpdated
+                        selectedCountry: store.selectedCountry,
+                        lastUpdated: store.stats.updateDate
                     ),
                     onTapped: $isPresentingCountries,
                     onRefresh: { store.startFetching() }

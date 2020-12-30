@@ -7,19 +7,19 @@ import Combine
 
 class HomeHeaderViewModel: ObservableObject {
     private let timer = Timer.publish(every: 1, on: .main, in: .common)
-    private let date: Date
     private let dateFormatter = LastUpdateDateFormatter()
     private var subscriptions: Set<AnyCancellable> = []
     
-    let country: String
+    let selectedCountry: Country
+    let lastUpdated: Date
     @Published var dateString: String = ""
     
-    init(country: String, date: Date) {
-        self.country = country
-        self.date = date
+    init(selectedCountry: Country, lastUpdated: Date) {
+        self.selectedCountry = selectedCountry
+        self.lastUpdated = lastUpdated
+        
         updateDate()
         
-        // TODO: Test this
         timer
             .autoconnect()
             .sink(receiveValue: { [weak self] _ in
@@ -31,6 +31,6 @@ class HomeHeaderViewModel: ObservableObject {
 
 private extension HomeHeaderViewModel {
     func updateDate() {
-        dateString = dateFormatter.localizedString(for: date, relativeTo: Date())
+        dateString = dateFormatter.localizedString(for: lastUpdated, relativeTo: Date())
     }
 }
