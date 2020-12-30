@@ -14,6 +14,8 @@ class HomeHeaderViewModel: ObservableObject {
     let lastUpdated: Date
     @Published var dateString: String = ""
     
+    @Published var canRefresh = false
+    
     init(selectedCountry: Country, lastUpdated: Date) {
         self.selectedCountry = selectedCountry
         self.lastUpdated = lastUpdated
@@ -32,5 +34,6 @@ class HomeHeaderViewModel: ObservableObject {
 private extension HomeHeaderViewModel {
     func updateDate() {
         dateString = dateFormatter.localizedString(for: lastUpdated, relativeTo: Date())
+        canRefresh = lastUpdated < Date().addingTimeInterval(-60)
     }
 }

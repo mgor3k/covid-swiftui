@@ -38,7 +38,9 @@ struct HomeHeaderView: View {
                     Image(systemName: "arrow.counterclockwise.circle.fill")
                         .foregroundColor(.white)
                         .font(.title)
+                        .opacity(viewModel.canRefresh ? 1 : 0.2)
                 }
+                .disabled(!viewModel.canRefresh)
                 Spacer()
             }
         }
