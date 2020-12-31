@@ -9,22 +9,28 @@ struct CountryPickerView: View {
     @Environment(\.presentationMode) private var presentationMode
     
     var body: some View {
-        NavigationView {
-            VStack {
-                SearchBar(text: $viewModel.searchText)
-                List(viewModel.filteredCountries) { item in
-                    Button(item.country) {
-                        viewModel.selectedCountry = item
-                        presentationMode.wrappedValue.dismiss()
+        switch viewModel.state {
+        case .idle:
+            Color.clear.onAppear(perform: viewModel.fetchList)
+        case .failed(let error):
+            ErrorView(error: error, retry: viewModel.fetchList)
+        case .loaded(let countries):
+            NavigationView {
+                VStack {
+                    SearchBar(text: $viewModel.searchText)
+                    List(countries) { item in
+                        Button(item.country) {
+                            viewModel.selectedCountry = item
+                            presentationMode.wrappedValue.dismiss()
+                        }
+                        .foregroundColor(item == viewModel.selectedCountry ? .blue : .black)
                     }
-                    .foregroundColor(item == viewModel.selectedCountry ? .blue : .black)
+                    .listStyle(InsetGroupedListStyle())
+                    .navigationBarTitle("Select a country")
                 }
-                .listStyle(InsetGroupedListStyle())
-                .navigationBarTitle("Select country")
             }
-            .onAppear(perform: {
-                viewModel.fetchList()
-            })
+        case .loading:
+            ProgressView()
         }
     }
 }
@@ -38,7 +44,8 @@ struct CountryPickerView_Previews: PreviewProvider {
         return CountryPickerView(
             viewModel: .mock(
                 countries: countries,
-                selectedCountry: countries.first!
+                selectedCountry: countries.first!,
+                isError: true
             )
         )
     }
