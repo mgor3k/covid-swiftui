@@ -22,7 +22,12 @@ class CountryPickerViewModel: ObservableObject {
         self.provider = provider
         self._selectedCountry = selectedCountry
         
-        setSearchSubscription()
+        $searchText
+            .dropFirst()
+            .sink { [weak self] searchText in
+                self?.updateState(for: searchText)
+            }
+            .store(in: &subscriptions)
     }
 }
 
@@ -43,26 +48,25 @@ extension CountryPickerViewModel {
             .receive(on: DispatchQueue.main)
             .map { $0.sorted(by: { $0.country < $1.country }) }
             .sink { [weak self] result in
-                switch result {
-                case .success(let countries):
-                    self?.fetchedCountries = countries
-                    self?.state = .loaded(countries)
-                case .failure(let error):
-                    self?.state = .failed(error)
-                }
+                self?.updateState(for: result)
             }
             .store(in: &subscriptions)
     }
 }
 
 private extension CountryPickerViewModel {
-    func setSearchSubscription() {
-        $searchText
-            .dropFirst()
-            .sink { [unowned self] searchText in
-                let list = fetchedCountries.filter { searchText.isEmpty ? true : $0.country.contains(searchText) }
-                state = .loaded(list)
-            }
-            .store(in: &subscriptions)
+    func updateState(for result: Result<[Country], Error>) {
+        switch result {
+        case .success(let countries):
+            fetchedCountries = countries
+            state = .loaded(countries)
+        case .failure(let error):
+            state = .failed(error)
+        }
+    }
+    
+    func updateState(for searchText: String) {
+        let filtered = fetchedCountries.filter { searchText.isEmpty ? true : $0.country.contains(searchText) }
+        state = .loaded(filtered)
     }
 }

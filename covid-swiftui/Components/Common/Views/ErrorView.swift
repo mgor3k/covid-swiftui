@@ -15,6 +15,8 @@ struct ErrorView: View {
                 .foregroundColor(Color.red)
             
             Text("\(error.localizedDescription)")
+                .multilineTextAlignment(.center)
+            
             Button("Retry", action: retry)
                 .font(.title)
                 .padding()
@@ -28,5 +30,7 @@ struct ErrorView_Previews: PreviewProvider {
             error: URLError(URLError.Code(rawValue: 123)),
             retry: {}
         )
+        .padding()
+        .previewLayout(.sizeThatFits)
     }
 }
