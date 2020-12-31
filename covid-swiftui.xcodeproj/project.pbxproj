@@ -37,8 +37,8 @@
 		BFE07A932594CEC100AF393A /* CountryListProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE07A922594CEC100AF393A /* CountryListProvider.swift */; };
 		BFE07A9A2594CF6E00AF393A /* CountryListProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE07A992594CF6E00AF393A /* CountryListProviding.swift */; };
 		BFFDB51B2594D1F7007E258B /* URL+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFDB51A2594D1F7007E258B /* URL+.swift */; };
-		BFFDB5232594D2B4007E258B /* CountryPickerStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFDB5222594D2B4007E258B /* CountryPickerStore.swift */; };
-		BFFDB5282594D458007E258B /* CountryPickerStore+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFDB5272594D458007E258B /* CountryPickerStore+.swift */; };
+		BFFDB5232594D2B4007E258B /* CountryPickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFDB5222594D2B4007E258B /* CountryPickerViewModel.swift */; };
+		BFFDB5282594D458007E258B /* CountryPickerStore+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFDB5272594D458007E258B /* CountryPickerStore+Mock.swift */; };
 		BFFDB5442594DCFA007E258B /* TotalCountryStatsProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFDB5432594DCFA007E258B /* TotalCountryStatsProviding.swift */; };
 		BFFDB5482594DD4D007E258B /* TotalCountryStatsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFDB5472594DD4D007E258B /* TotalCountryStatsProvider.swift */; };
 		BFFDB54F2594DE74007E258B /* HomeStore+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFDB54E2594DE74007E258B /* HomeStore+.swift */; };
@@ -89,8 +89,8 @@
 		BFE07A922594CEC100AF393A /* CountryListProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryListProvider.swift; sourceTree = "<group>"; };
 		BFE07A992594CF6E00AF393A /* CountryListProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryListProviding.swift; sourceTree = "<group>"; };
 		BFFDB51A2594D1F7007E258B /* URL+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+.swift"; sourceTree = "<group>"; };
-		BFFDB5222594D2B4007E258B /* CountryPickerStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryPickerStore.swift; sourceTree = "<group>"; };
-		BFFDB5272594D458007E258B /* CountryPickerStore+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CountryPickerStore+.swift"; sourceTree = "<group>"; };
+		BFFDB5222594D2B4007E258B /* CountryPickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryPickerViewModel.swift; sourceTree = "<group>"; };
+		BFFDB5272594D458007E258B /* CountryPickerStore+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CountryPickerStore+Mock.swift"; sourceTree = "<group>"; };
 		BFFDB5432594DCFA007E258B /* TotalCountryStatsProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalCountryStatsProviding.swift; sourceTree = "<group>"; };
 		BFFDB5472594DD4D007E258B /* TotalCountryStatsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalCountryStatsProvider.swift; sourceTree = "<group>"; };
 		BFFDB54E2594DE74007E258B /* HomeStore+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeStore+.swift"; sourceTree = "<group>"; };
@@ -331,7 +331,7 @@
 		BFE07A8D2594CDE500AF393A /* CountryPicker */ = {
 			isa = PBXGroup;
 			children = (
-				BFFDB5262594D447007E258B /* Store */,
+				BFFDB5262594D447007E258B /* ViewModel */,
 				BFE07A8E2594CDFC00AF393A /* CountryPickerView.swift */,
 			);
 			path = CountryPicker;
@@ -346,13 +346,13 @@
 			path = "Country List";
 			sourceTree = "<group>";
 		};
-		BFFDB5262594D447007E258B /* Store */ = {
+		BFFDB5262594D447007E258B /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				BFFDB5222594D2B4007E258B /* CountryPickerStore.swift */,
-				BFFDB5272594D458007E258B /* CountryPickerStore+.swift */,
+				BFFDB5222594D2B4007E258B /* CountryPickerViewModel.swift */,
+				BFFDB5272594D458007E258B /* CountryPickerStore+Mock.swift */,
 			);
-			path = Store;
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		BFFDB5392594DB6C007E258B /* Model */ = {
@@ -509,8 +509,8 @@
 				BFE07A8F2594CDFD00AF393A /* CountryPickerView.swift in Sources */,
 				BFC9903E25376C6400B96B3E /* TotalCountryStats.swift in Sources */,
 				BF7879F32541FCAC006CFD69 /* LastUpdateDateFormatter.swift in Sources */,
-				BFFDB5232594D2B4007E258B /* CountryPickerStore.swift in Sources */,
-				BFFDB5282594D458007E258B /* CountryPickerStore+.swift in Sources */,
+				BFFDB5232594D2B4007E258B /* CountryPickerViewModel.swift in Sources */,
+				BFFDB5282594D458007E258B /* CountryPickerStore+Mock.swift in Sources */,
 				BF2829C82534CEC300911D5F /* HomeHeaderView.swift in Sources */,
 				BFFDB5442594DCFA007E258B /* TotalCountryStatsProviding.swift in Sources */,
 				BF17C4BB25976E7000730A81 /* SearchBar.swift in Sources */,

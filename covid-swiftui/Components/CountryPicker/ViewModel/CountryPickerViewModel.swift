@@ -6,21 +6,28 @@ import Foundation
 import SwiftUI
 import Combine
 
-class CountryPickerStore: ObservableObject {
+class CountryPickerViewModel: ObservableObject {
     private let provider: CountryListProviding
     private var subscriptions: Set<AnyCancellable> = []
     
     @Published private var countries: [Country] = []
+    
     @Published var searchText = ""
+    @Binding var selectedCountry: Country
     
     var filteredCountries: [Country] {
         countries.filter { searchText.isEmpty ? true : $0.country.contains(searchText) }
     }
     
-    init(provider: CountryListProviding) {
+    init(
+        provider: CountryListProviding = CountryListProvider(session: .shared),
+        selectedCountry: Binding<Country>) {
         self.provider = provider
+        self._selectedCountry = selectedCountry
     }
-    
+}
+
+extension CountryPickerViewModel {
     func fetchList() {
         provider
             .getCountryList()

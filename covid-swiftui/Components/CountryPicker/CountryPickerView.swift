@@ -5,34 +5,25 @@
 import SwiftUI
 
 struct CountryPickerView: View {
-    @ObservedObject var store: CountryPickerStore
-
-    @Binding var selectedCountry: Country
-    
-    @Environment(\.presentationMode) var presentationMode
-    
-    init(store: CountryPickerStore = .default,
-         selectedCountry: Binding<Country>) {
-        self.store = store
-        self._selectedCountry = selectedCountry
-    }
+    @ObservedObject var viewModel: CountryPickerViewModel
+    @Environment(\.presentationMode) private var presentationMode
     
     var body: some View {
         NavigationView {
             VStack {
-                SearchBar(text: $store.searchText)
-                List(store.filteredCountries) { item in
+                SearchBar(text: $viewModel.searchText)
+                List(viewModel.filteredCountries) { item in
                     Button(item.country) {
-                        selectedCountry = item
+                        viewModel.selectedCountry = item
                         presentationMode.wrappedValue.dismiss()
                     }
-                    .foregroundColor(.black)
+                    .foregroundColor(item == viewModel.selectedCountry ? .blue : .black)
                 }
                 .listStyle(InsetGroupedListStyle())
                 .navigationBarTitle("Select country")
             }
             .onAppear(perform: {
-                store.fetchList()
+                viewModel.fetchList()
             })
         }
     }
@@ -40,6 +31,15 @@ struct CountryPickerView: View {
 
 struct CountryPickerView_Previews: PreviewProvider {
     static var previews: some View {
-        CountryPickerView(store: .mock, selectedCountry: .constant(.init(country: "Poland", slug: "poland")))
+        let countries: [Country] = [
+            .init(country: "Country 1", slug: "1"),
+            .init(country: "Country 2", slug: "2")
+        ]
+        return CountryPickerView(
+            viewModel: .mock(
+                countries: countries,
+                selectedCountry: countries.first!
+            )
+        )
     }
 }

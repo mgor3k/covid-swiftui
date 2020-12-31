@@ -17,3 +17,5 @@ struct Country: Decodable {
 extension Country: Identifiable {
     var id: String { slug }
 }
+
+extension Country: Equatable { }

@@ -44,7 +44,9 @@ struct HomeView: View {
             .edgesIgnoringSafeArea(.bottom)
         }
         .sheet(isPresented: $isPresentingCountries, content: {
-            CountryPickerView(selectedCountry: $store.selectedCountry)
+            CountryPickerView(
+                viewModel: .init(selectedCountry: $store.selectedCountry)
+            )
         })
         .onAppear(perform: {
             store.startFetching()
