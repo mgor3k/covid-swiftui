@@ -30,7 +30,7 @@ class HomeStore: ObservableObject {
         
         $selectedCountry
             .flatMap { [unowned self] in
-                self.provider.totalStats(for: $0.slug)
+                self.provider.totalStats(for: $0)
             }
             .receive(on: DispatchQueue.main)
             .replaceError(with: .empty)

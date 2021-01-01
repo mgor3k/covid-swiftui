@@ -5,13 +5,12 @@
 import Foundation
 import Combine
 
-struct CountryListProvider: CountryListProviding {
-    let session: URLSession
+struct CountryListProvider {
+    let network: Networking
     
     func getCountryList() -> AnyPublisher<[Country], Error> {
-        session
-            .dataTaskPublisher(forEndpoint: .countries)
-            .map(\.data)
+        network
+            .loadData(from: .countries)
             .decode(type: [Country].self, decoder: JSONDecoder())
             .eraseToAnyPublisher()
     }

@@ -6,12 +6,9 @@ import SwiftUI
 import Combine
 
 struct HomeView: View {
+    @Environment(\.resolver) var resolver
     @ObservedObject var store: HomeStore
     @State var isPresentingCountries = false
-    
-    init(store: HomeStore = .default) {
-        self.store = store
-    }
     
     var body: some View {
         GeometryReader { metrics in
@@ -45,7 +42,10 @@ struct HomeView: View {
         }
         .sheet(isPresented: $isPresentingCountries, content: {
             CountryPickerView(
-                viewModel: .init(selectedCountry: $store.selectedCountry)
+                viewModel: .init(
+                    provider: CountryListProvider(network: resolver.networking),
+                    selectedCountry: $store.selectedCountry
+                )
             )
         })
         .onAppear(perform: {

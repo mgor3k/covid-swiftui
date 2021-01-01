@@ -28,7 +28,6 @@ struct ShimmerView: View {
                         self.opacity = Constants.maxOpacity
                     }
             }
-            ProgressView()
         }
     }
 }

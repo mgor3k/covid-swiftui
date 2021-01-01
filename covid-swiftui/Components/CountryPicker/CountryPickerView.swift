@@ -30,15 +30,10 @@ struct CountryPickerView: View {
 
 struct CountryPickerView_Previews: PreviewProvider {
     static var previews: some View {
-        let countries: [Country] = [
-            .init(country: "Country 1", slug: "1"),
-            .init(country: "Country 2", slug: "2")
-        ]
-        return CountryPickerView(
-            viewModel: .mock(
-                countries: countries,
-                selectedCountry: countries.first!,
-                isError: false
+        CountryPickerView(
+            viewModel: .init(
+                provider: .init(network: LocalNetworkManager()),
+                selectedCountry: .constant(.init(country: "Poland", slug: "poland"))
             )
         )
     }

@@ -6,9 +6,16 @@ import SwiftUI
 
 @main
 struct app: App {
+    let resolver = Resolver(
+        networking: LocalNetworkManager()
+    )
+    
     var body: some Scene {
         WindowGroup {
-            HomeView()
+            HomeView(
+                store: .init(provider: TotalCountryStatsProvider(network: resolver.networking))
+            )
+            .environment(\.resolver, resolver)
         }
     }
 }

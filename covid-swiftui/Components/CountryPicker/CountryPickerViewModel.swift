@@ -9,7 +9,7 @@ import Combine
 class CountryPickerViewModel: LoadableObject {
     typealias Output = [Country]
     
-    private let provider: CountryListProviding
+    private let provider: CountryListProvider
     private var subscriptions: Set<AnyCancellable> = []
     
     @Published private(set) var state: LoadingState<[Country]> = .idle
@@ -18,9 +18,8 @@ class CountryPickerViewModel: LoadableObject {
     
     private var fetchedCountries: [Country] = []
     
-    init(
-        provider: CountryListProviding = CountryListProvider(session: .shared),
-        selectedCountry: Binding<Country>) {
+    init(provider: CountryListProvider,
+         selectedCountry: Binding<Country>) {
         self.provider = provider
         self._selectedCountry = selectedCountry
         
