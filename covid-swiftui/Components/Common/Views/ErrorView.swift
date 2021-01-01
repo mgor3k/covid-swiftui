@@ -21,6 +21,7 @@ struct ErrorView: View {
                 .font(.title)
                 .padding()
         }
+        .padding()
     }
 }
 
@@ -30,7 +31,6 @@ struct ErrorView_Previews: PreviewProvider {
             error: URLError(URLError.Code(rawValue: 123)),
             retry: {}
         )
-        .padding()
         .previewLayout(.sizeThatFits)
     }
 }

@@ -9,12 +9,7 @@ struct CountryPickerView: View {
     @Environment(\.presentationMode) private var presentationMode
     
     var body: some View {
-        switch viewModel.state {
-        case .idle:
-            Color.clear.onAppear(perform: viewModel.fetchList)
-        case .failed(let error):
-            ErrorView(error: error, retry: viewModel.fetchList)
-        case .loaded(let countries):
+        AsyncContentView(source: viewModel) { countries in
             NavigationView {
                 VStack {
                     SearchBar(text: $viewModel.searchText)
@@ -29,8 +24,6 @@ struct CountryPickerView: View {
                     .navigationBarTitle("Select a country")
                 }
             }
-        case .loading:
-            ProgressView()
         }
     }
 }
@@ -45,7 +38,7 @@ struct CountryPickerView_Previews: PreviewProvider {
             viewModel: .mock(
                 countries: countries,
                 selectedCountry: countries.first!,
-                isError: true
+                isError: false
             )
         )
     }

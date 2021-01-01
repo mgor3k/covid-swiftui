@@ -6,11 +6,13 @@ import Foundation
 import SwiftUI
 import Combine
 
-class CountryPickerViewModel: ObservableObject {
+class CountryPickerViewModel: LoadableObject {
+    typealias Output = [Country]
+    
     private let provider: CountryListProviding
     private var subscriptions: Set<AnyCancellable> = []
     
-    @Published private(set) var state: State = .idle
+    @Published private(set) var state: LoadingState<[Country]> = .idle
     @Published var searchText = ""
     @Binding var selectedCountry: Country
     
@@ -32,14 +34,7 @@ class CountryPickerViewModel: ObservableObject {
 }
 
 extension CountryPickerViewModel {
-    enum State {
-        case idle
-        case loading
-        case failed(Error)
-        case loaded([Country])
-    }
-    
-    func fetchList() {
+    func load() {
         state = .loading
         
         provider
