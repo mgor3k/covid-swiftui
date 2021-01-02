@@ -14,7 +14,7 @@ struct app: App {
     var body: some Scene {
         WindowGroup {
             HomeView(
-                viewModel: .init(provider: TotalCountryStatsProvider(network: resolver.networking))
+                viewModel: .init(provider: HomeProvider(network: resolver.networking))
             )
             .environment(\.resolver, resolver)
         }

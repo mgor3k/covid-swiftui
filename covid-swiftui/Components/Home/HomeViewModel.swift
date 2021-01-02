@@ -6,15 +6,16 @@ import Foundation
 import Combine
 
 class HomeViewModel: ObservableObject {
-    private let provider: TotalCountryStatsProviding
+    private let provider: TotalCountryStatsProviding & SummaryProviding
     
     private var subscriptions: Set<AnyCancellable> = []
     
     @Published var selectedCountry = Country(country: "Poland", slug: "poland") // TODO: Temporary
+    @Published var topCountries: [SummaryCountry] = []
     @Published var stats: TotalCountryStats = .empty
     @Published var isLoading = false
     
-    init(provider: TotalCountryStatsProviding) {
+    init(provider: TotalCountryStatsProviding & SummaryProviding) {
         self.provider = provider
         
         $selectedCountry
@@ -37,6 +38,13 @@ class HomeViewModel: ObservableObject {
                 self?.isLoading = false
             })
             .assign(to: \.stats, on: self)
+            .store(in: &subscriptions)
+        
+        provider
+            .summary()
+            .receive(on: DispatchQueue.main)
+            .replaceError(with: [])
+            .assign(to: \.topCountries, on: self)
             .store(in: &subscriptions)
     }
 }

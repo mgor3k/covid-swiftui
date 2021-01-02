@@ -34,7 +34,7 @@ struct HomeView: View {
                     StatsGridView(viewModel: .init(stats: viewModel.stats), itemHeight: metrics.size.width * 0.3, isLoading: viewModel.isLoading)
                         .frame(width: metrics.size.width * 0.8)
                         .offset(.init(width: 0, height: -36))
-                    GlobalStatsList(viewModel: .init(provider: SummaryProvider(network: resolver.networking)))
+                    GlobalStatsList(countries: viewModel.topCountries)
                     Spacer()
                 }
             }
@@ -43,7 +43,7 @@ struct HomeView: View {
         .sheet(isPresented: $isPresentingCountries, content: {
             CountryPickerView(
                 viewModel: .init(
-                    provider: CountryListProvider(network: resolver.networking),
+                    provider: CountryPickerProvider(network: resolver.networking),
                     selectedCountry: $viewModel.selectedCountry
                 )
             )
@@ -59,9 +59,15 @@ struct ContentView_Previews: PreviewProvider {
         HomeView(viewModel: .init(provider: MockProvider()))
     }
     
-    struct MockProvider: TotalCountryStatsProviding {
+    struct MockProvider: TotalCountryStatsProviding, SummaryProviding {
         func totalStats(for country: Country) -> AnyPublisher<TotalCountryStats, Error> {
             Just(.init(confirmed: 1, deaths: 2, recovered: 3, active: 4))
+                .setFailureType(to: Error.self)
+                .eraseToAnyPublisher()
+        }
+        
+        func summary() -> AnyPublisher<[SummaryCountry], Error> {
+            Just([])
                 .setFailureType(to: Error.self)
                 .eraseToAnyPublisher()
         }

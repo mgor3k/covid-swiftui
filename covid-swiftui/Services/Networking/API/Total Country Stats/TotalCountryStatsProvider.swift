@@ -8,18 +8,3 @@ import Combine
 protocol TotalCountryStatsProviding {
     func totalStats(for country: Country) -> AnyPublisher<TotalCountryStats, Error>
 }
-
-struct TotalCountryStatsProvider: TotalCountryStatsProviding {
-    let network: Networking
-    
-    func totalStats(
-        for country: Country
-    ) -> AnyPublisher<TotalCountryStats, Error> {
-        network
-            .loadData(from: .totalStats(country: country.slug))
-            .decode(type: [TotalCountryStats].self, decoder: JSONDecoder())
-            .compactMap { $0.last }
-            .replaceEmpty(with: .empty)
-            .eraseToAnyPublisher()
-    }
-}

@@ -10,7 +10,6 @@
 		BF17C4BB25976E7000730A81 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF17C4BA25976E7000730A81 /* SearchBar.swift */; };
 		BF17C4C12597777000730A81 /* SummaryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF17C4C02597777000730A81 /* SummaryResponse.swift */; };
 		BF17C4CA2597787400730A81 /* SummaryProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF17C4C92597787400730A81 /* SummaryProvider.swift */; };
-		BF17C4D0259779FE00730A81 /* GlobalStatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF17C4CF259779FE00730A81 /* GlobalStatsViewModel.swift */; };
 		BF2829C82534CEC300911D5F /* HomeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2829C72534CEC300911D5F /* HomeHeaderView.swift */; };
 		BF2829CC2534D9E900911D5F /* StatsGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2829CB2534D9E900911D5F /* StatsGridView.swift */; };
 		BF2829D3253627D900911D5F /* StatsGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2829D2253627D900911D5F /* StatsGridCell.swift */; };
@@ -20,6 +19,8 @@
 		BF464906259E84D4000AB3BD /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF464905259E84D4000AB3BD /* ErrorView.swift */; };
 		BF46490A259F70A0000AB3BD /* AsyncContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF464909259F70A0000AB3BD /* AsyncContentView.swift */; };
 		BF46490F259F8C6E000AB3BD /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF46490E259F8C6E000AB3BD /* NetworkManager.swift */; };
+		BF68D88525A0A4C100ABC202 /* HomeProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF68D88425A0A4C100ABC202 /* HomeProvider.swift */; };
+		BF68D88925A0A50900ABC202 /* CountryPickerProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF68D88825A0A50900ABC202 /* CountryPickerProvider.swift */; };
 		BF7879DE2541ECE0006CFD69 /* ShimmerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7879DD2541ECE0006CFD69 /* ShimmerView.swift */; };
 		BF7879E42541F3B7006CFD69 /* HomeHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7879E32541F3B7006CFD69 /* HomeHeaderViewModel.swift */; };
 		BF7879E92541F416006CFD69 /* LastUpdateDateFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7879E82541F416006CFD69 /* LastUpdateDateFormatterTests.swift */; };
@@ -61,7 +62,6 @@
 		BF17C4BA25976E7000730A81 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		BF17C4C02597777000730A81 /* SummaryResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryResponse.swift; sourceTree = "<group>"; };
 		BF17C4C92597787400730A81 /* SummaryProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryProvider.swift; sourceTree = "<group>"; };
-		BF17C4CF259779FE00730A81 /* GlobalStatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalStatsViewModel.swift; sourceTree = "<group>"; };
 		BF2829C72534CEC300911D5F /* HomeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderView.swift; sourceTree = "<group>"; };
 		BF2829CB2534D9E900911D5F /* StatsGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsGridView.swift; sourceTree = "<group>"; };
 		BF2829D2253627D900911D5F /* StatsGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsGridCell.swift; sourceTree = "<group>"; };
@@ -71,6 +71,8 @@
 		BF464905259E84D4000AB3BD /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		BF464909259F70A0000AB3BD /* AsyncContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncContentView.swift; sourceTree = "<group>"; };
 		BF46490E259F8C6E000AB3BD /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		BF68D88425A0A4C100ABC202 /* HomeProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProvider.swift; sourceTree = "<group>"; };
+		BF68D88825A0A50900ABC202 /* CountryPickerProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryPickerProvider.swift; sourceTree = "<group>"; };
 		BF7879DD2541ECE0006CFD69 /* ShimmerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmerView.swift; sourceTree = "<group>"; };
 		BF7879E32541F3B7006CFD69 /* HomeHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderViewModel.swift; sourceTree = "<group>"; };
 		BF7879E82541F416006CFD69 /* LastUpdateDateFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastUpdateDateFormatterTests.swift; sourceTree = "<group>"; };
@@ -275,6 +277,7 @@
 			children = (
 				BF6EAE542594E06B00FCC4A1 /* Components */,
 				BFC990332537679100B96B3E /* HomeViewModel.swift */,
+				BF68D88425A0A4C100ABC202 /* HomeProvider.swift */,
 				BFBFAC87252CD44D00F9C0FD /* HomeView.swift */,
 			);
 			path = Home;
@@ -302,7 +305,6 @@
 		BFC9903B25376C0800B96B3E /* Top Rank */ = {
 			isa = PBXGroup;
 			children = (
-				BF17C4CF259779FE00730A81 /* GlobalStatsViewModel.swift */,
 				BF2829D525362FA300911D5F /* GlobalStatsList.swift */,
 				BF2829D825362FDE00911D5F /* GlobalStatsCell.swift */,
 			);
@@ -361,6 +363,7 @@
 			isa = PBXGroup;
 			children = (
 				BFE07A8E2594CDFC00AF393A /* CountryPickerView.swift */,
+				BF68D88825A0A50900ABC202 /* CountryPickerProvider.swift */,
 				BFFDB5222594D2B4007E258B /* CountryPickerViewModel.swift */,
 			);
 			path = CountryPicker;
@@ -494,7 +497,6 @@
 				BFCC26CF259F98E90043204A /* Networking.swift in Sources */,
 				BF2829C82534CEC300911D5F /* HomeHeaderView.swift in Sources */,
 				BF17C4BB25976E7000730A81 /* SearchBar.swift in Sources */,
-				BF17C4D0259779FE00730A81 /* GlobalStatsViewModel.swift in Sources */,
 				BF46490F259F8C6E000AB3BD /* NetworkManager.swift in Sources */,
 				BF7879E42541F3B7006CFD69 /* HomeHeaderViewModel.swift in Sources */,
 				BF17C4C12597777000730A81 /* SummaryResponse.swift in Sources */,
@@ -505,8 +507,10 @@
 				BFA9E15E253C82F800919AFC /* StatsGridElement.swift in Sources */,
 				BF2829D3253627D900911D5F /* StatsGridCell.swift in Sources */,
 				BFFDB5482594DD4D007E258B /* TotalCountryStatsProvider.swift in Sources */,
+				BF68D88925A0A50900ABC202 /* CountryPickerProvider.swift in Sources */,
 				BF17C4CA2597787400730A81 /* SummaryProvider.swift in Sources */,
 				BFBFAC88252CD44D00F9C0FD /* HomeView.swift in Sources */,
+				BF68D88525A0A4C100ABC202 /* HomeProvider.swift in Sources */,
 				BFBFCFFF2545FC0700062C1C /* Country.swift in Sources */,
 				BF2829CC2534D9E900911D5F /* StatsGridView.swift in Sources */,
 				BFE07A932594CEC100AF393A /* CountryListProvider.swift in Sources */,
