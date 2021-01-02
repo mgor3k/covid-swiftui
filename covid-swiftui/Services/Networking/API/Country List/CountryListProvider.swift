@@ -5,7 +5,11 @@
 import Foundation
 import Combine
 
-struct CountryListProvider {
+protocol CountryListProviding {
+    func getCountryList() -> AnyPublisher<[Country], Error>
+}
+
+struct CountryListProvider: CountryListProviding {
     let network: Networking
     
     func getCountryList() -> AnyPublisher<[Country], Error> {

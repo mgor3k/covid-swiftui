@@ -7,13 +7,14 @@ import SwiftUI
 @main
 struct app: App {
     let resolver = Resolver(
+        // switch to NetworkManager() for real requests
         networking: LocalNetworkManager()
     )
     
     var body: some Scene {
         WindowGroup {
             HomeView(
-                store: .init(provider: TotalCountryStatsProvider(network: resolver.networking))
+                viewModel: .init(provider: TotalCountryStatsProvider(network: resolver.networking))
             )
             .environment(\.resolver, resolver)
         }

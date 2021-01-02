@@ -5,7 +5,7 @@
 import Foundation
 import Combine
 
-class HomeStore: ObservableObject {
+class HomeViewModel: ObservableObject {
     private let provider: TotalCountryStatsProviding
     
     private var subscriptions: Set<AnyCancellable> = []
@@ -14,8 +14,7 @@ class HomeStore: ObservableObject {
     @Published var stats: TotalCountryStats = .empty
     @Published var isLoading = false
     
-    init(
-        provider: TotalCountryStatsProviding) {
+    init(provider: TotalCountryStatsProviding) {
         self.provider = provider
         
         $selectedCountry

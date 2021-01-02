@@ -5,6 +5,10 @@
 import Foundation
 import Combine
 
+protocol TotalCountryStatsProviding {
+    func totalStats(for country: Country) -> AnyPublisher<TotalCountryStats, Error>
+}
+
 struct TotalCountryStatsProvider: TotalCountryStatsProviding {
     let network: Networking
     

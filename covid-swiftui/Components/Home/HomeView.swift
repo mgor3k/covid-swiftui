@@ -7,7 +7,7 @@ import Combine
 
 struct HomeView: View {
     @Environment(\.resolver) var resolver
-    @ObservedObject var store: HomeStore
+    @ObservedObject var viewModel: HomeViewModel
     @State var isPresentingCountries = false
     
     var body: some View {
@@ -20,18 +20,18 @@ struct HomeView: View {
                         .padding(.top, -metrics.safeAreaInsets.top)
                     
                     HomeHeaderView(viewModel: .init(
-                        selectedCountry: store.selectedCountry,
-                        lastUpdated: store.stats.updateDate
+                        selectedCountry: viewModel.selectedCountry,
+                        lastUpdated: viewModel.stats.updateDate
                     ),
                     onTapped: $isPresentingCountries,
-                    onRefresh: { store.startFetching() }
+                    onRefresh: { viewModel.startFetching() }
                     )
                 }
                 .frame(height: metrics.size.height * 0.3)
                 
                 VStack {
                     // get rid of the metrics in the init
-                    StatsGridView(viewModel: .init(stats: store.stats), itemHeight: metrics.size.width * 0.3, isLoading: store.isLoading)
+                    StatsGridView(viewModel: .init(stats: viewModel.stats), itemHeight: metrics.size.width * 0.3, isLoading: viewModel.isLoading)
                         .frame(width: metrics.size.width * 0.8)
                         .offset(.init(width: 0, height: -36))
                     GlobalStatsList()
@@ -44,18 +44,26 @@ struct HomeView: View {
             CountryPickerView(
                 viewModel: .init(
                     provider: CountryListProvider(network: resolver.networking),
-                    selectedCountry: $store.selectedCountry
+                    selectedCountry: $viewModel.selectedCountry
                 )
             )
         })
         .onAppear(perform: {
-            store.startFetching()
+            viewModel.startFetching()
         })
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView(store: .mock)
+        HomeView(viewModel: .init(provider: MockProvider()))
+    }
+    
+    struct MockProvider: TotalCountryStatsProviding {
+        func totalStats(for country: Country) -> AnyPublisher<TotalCountryStats, Error> {
+            Just(.init(confirmed: 1, deaths: 2, recovered: 3, active: 4))
+                .setFailureType(to: Error.self)
+                .eraseToAnyPublisher()
+        }
     }
 }

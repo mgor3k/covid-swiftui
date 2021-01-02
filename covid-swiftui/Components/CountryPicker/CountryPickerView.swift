@@ -3,6 +3,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct CountryPickerView: View {
     @ObservedObject var viewModel: CountryPickerViewModel
@@ -32,9 +33,20 @@ struct CountryPickerView_Previews: PreviewProvider {
     static var previews: some View {
         CountryPickerView(
             viewModel: .init(
-                provider: .init(network: LocalNetworkManager()),
+                provider: MockProvider(),
                 selectedCountry: .constant(.init(country: "Poland", slug: "poland"))
             )
         )
+    }
+    
+    struct MockProvider: CountryListProviding {
+        func getCountryList() -> AnyPublisher<[Country], Error> {
+            Just([
+                Country(country: "Poland", slug: "poland"),
+                Country(country: "UK", slug: "uk")
+            ])
+            .setFailureType(to: Error.self)
+            .eraseToAnyPublisher()
+        }
     }
 }
