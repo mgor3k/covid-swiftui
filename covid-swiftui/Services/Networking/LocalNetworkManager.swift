@@ -18,6 +18,8 @@ private extension URL.Endpoint {
         switch self {
         case .countries:
             return "countries"
+        case .summary:
+            return "summary"
         default:
             return nil
         }

@@ -34,6 +34,6 @@ class HomeHeaderViewModel: ObservableObject {
 private extension HomeHeaderViewModel {
     func updateDate() {
         dateString = dateFormatter.localizedString(for: lastUpdated, relativeTo: Date())
-        canRefresh = lastUpdated < Date().addingTimeInterval(-60)
+        canRefresh = lastUpdated < Date().addingTimeInterval(-5)
     }
 }

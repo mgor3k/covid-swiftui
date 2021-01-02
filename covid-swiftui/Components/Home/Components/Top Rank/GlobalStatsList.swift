@@ -3,31 +3,36 @@
 //
 
 import SwiftUI
+import Combine
 
 struct GlobalStatsList: View {
-    @ObservedObject var store: GlobalStatsStore
-    
-    init(store: GlobalStatsStore = .default) {
-        self.store = store
-    }
+    @ObservedObject var viewModel: GlobalStatsViewModel
     
     var body: some View {
         VStack {
             Text("Top 10 countries (by cases)")
                 .font(.caption)
-            List(store.countries, id: \.self) { item in
+            List(viewModel.countries, id: \.self) { item in
                 GlobalStatsCell(item: item)
             }
         }
-        .onAppear(perform: {
-            store.fetchCountries()
-        })
+        .onAppear(perform: viewModel.fetchCountries)
     }
 }
 
 struct GlobalStatsList_Previews: PreviewProvider {
     static var previews: some View {
-        GlobalStatsList(store: .mock)
+        GlobalStatsList(viewModel: .init(provider: MockProvider()))
             .previewLayout(.fixed(width: 300, height: 600))
+    }
+    
+    struct MockProvider: SummaryProviding {
+        func summary() -> AnyPublisher<[SummaryCountry], Error> {
+            Just([
+                .init(country: "Australia", totalConfirmed: 10, totalDeath: 5)
+            ])
+            .setFailureType(to: Error.self)
+            .eraseToAnyPublisher()
+        }
     }
 }

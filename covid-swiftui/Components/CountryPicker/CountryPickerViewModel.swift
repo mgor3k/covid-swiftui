@@ -41,7 +41,7 @@ extension CountryPickerViewModel {
             .print()
             .receive(on: DispatchQueue.main)
             .map { $0.sorted(by: { $0.country < $1.country }) }
-            .sink { [weak self] result in
+            .sinkResult { [weak self] result in
                 self?.updateState(for: result)
             }
             .store(in: &subscriptions)

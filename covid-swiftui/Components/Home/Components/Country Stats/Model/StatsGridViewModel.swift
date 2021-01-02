@@ -7,12 +7,12 @@ import Foundation
 struct StatsGridViewModel {
     let items: [StatsGridElement]
     
-    init(stats: TotalCountryStats?) {
+    init(stats: TotalCountryStats) {
         self.items = [
-            .confirmed(stats?.confirmed ?? 0),
-            .active(stats?.active ?? 0),
-            .recovered(stats?.recovered ?? 0),
-            .deaths(stats?.deaths ?? 0)
+            .confirmed(stats.confirmed),
+            .active(stats.active),
+            .recovered(stats.recovered),
+            .deaths(stats.deaths)
         ]
     }
 }

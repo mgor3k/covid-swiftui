@@ -5,7 +5,7 @@
 import Foundation
 import Combine
 
-class GlobalStatsStore: ObservableObject {
+class GlobalStatsViewModel: ObservableObject {
     private let provider: SummaryProviding
     private var subscriptions: Set<AnyCancellable> = []
     

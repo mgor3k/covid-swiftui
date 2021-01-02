@@ -5,13 +5,16 @@
 import Foundation
 import Combine
 
+protocol SummaryProviding {
+    func summary() -> AnyPublisher<[SummaryCountry], Error>
+}
+
 struct SummaryProvider: SummaryProviding {
-    let session: URLSession
+    let network: Networking
     
     func summary() -> AnyPublisher<[SummaryCountry], Error> {
-        session
-            .dataTaskPublisher(forEndpoint: .summary)
-            .map(\.data)
+        network
+            .loadData(from: .summary)
             .decode(type: SummaryResponse.self, decoder: JSONDecoder())
             .map { summary in
                 let countries = summary.countries
