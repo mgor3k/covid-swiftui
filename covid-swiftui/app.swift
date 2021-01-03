@@ -7,8 +7,8 @@ import SwiftUI
 @main
 struct app: App {
     let resolver = Resolver(
-        // switch to NetworkManager() for real requests
-        networking: LocalNetworkManager()
+        // LocalNetworkManager() or NetworkManager() for real requests
+        networking: NetworkManager()
     )
     
     var body: some Scene {

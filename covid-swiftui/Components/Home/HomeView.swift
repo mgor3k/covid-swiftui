@@ -34,7 +34,7 @@ struct HomeView: View {
                     StatsGridView(viewModel: .init(stats: viewModel.stats), itemHeight: metrics.size.width * 0.3, isLoading: viewModel.isLoading)
                         .frame(width: metrics.size.width * 0.8)
                         .offset(.init(width: 0, height: -36))
-                    GlobalStatsList(countries: viewModel.topCountries)
+                    GlobalStatsList(countries: viewModel.topCountries, isLoading: $viewModel.isLoading)
                     Spacer()
                 }
             }
