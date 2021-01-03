@@ -24,17 +24,17 @@ struct HomeView: View {
                         lastUpdated: viewModel.stats.updateDate
                     ),
                     onTapped: $isPresentingCountries,
-                    onRefresh: { viewModel.startFetching() }
+                    onRefresh: viewModel.refreshCountry
                     )
                 }
                 .frame(height: metrics.size.height * 0.3)
                 
                 VStack {
                     // get rid of the metrics in the init
-                    StatsGridView(viewModel: .init(stats: viewModel.stats), itemHeight: metrics.size.width * 0.3, isLoading: viewModel.isLoading)
+                    StatsGridView(viewModel: .init(stats: viewModel.stats), itemHeight: metrics.size.width * 0.3, isLoading: viewModel.isStatsLoading)
                         .frame(width: metrics.size.width * 0.8)
                         .offset(.init(width: 0, height: -36))
-                    GlobalStatsList(countries: viewModel.topCountries, isLoading: $viewModel.isLoading)
+                    GlobalStatsList(countries: viewModel.topCountries, isLoading: $viewModel.isTopCountriesLoading)
                     Spacer()
                 }
             }

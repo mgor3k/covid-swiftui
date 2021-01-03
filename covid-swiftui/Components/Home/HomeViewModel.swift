@@ -13,7 +13,9 @@ class HomeViewModel: ObservableObject {
     @Published var selectedCountry = Country(country: "Poland", slug: "poland") // TODO: Temporary
     @Published var topCountries: [SummaryCountry] = []
     @Published var stats: TotalCountryStats = .empty
-    @Published var isLoading = false
+    
+    @Published var isStatsLoading = false
+    @Published var isTopCountriesLoading = false
     
     init(provider: TotalCountryStatsProviding & SummaryProviding) {
         self.provider = provider
@@ -21,12 +23,13 @@ class HomeViewModel: ObservableObject {
         $selectedCountry
             .dropFirst()
             .map { _ in true }
-            .assign(to: \.isLoading, on: self)
+            .assign(to: \.isStatsLoading, on: self)
             .store(in: &subscriptions)
     }
     
     func startFetching() {
-        isLoading = true
+        isStatsLoading = true
+        isTopCountriesLoading = true
         
         $selectedCountry
             .flatMap { [unowned self] in
@@ -35,7 +38,7 @@ class HomeViewModel: ObservableObject {
             .receive(on: DispatchQueue.main)
             .replaceError(with: .empty)
             .handleEvents(receiveOutput: { [weak self] _ in
-                self?.isLoading = false
+                self?.isStatsLoading = false
             })
             .assign(to: \.stats, on: self)
             .store(in: &subscriptions)
@@ -44,7 +47,15 @@ class HomeViewModel: ObservableObject {
             .summary()
             .receive(on: DispatchQueue.main)
             .replaceError(with: [])
+            .handleEvents(receiveOutput: { [weak self] _ in
+                self?.isTopCountriesLoading = false
+            })
             .assign(to: \.topCountries, on: self)
             .store(in: &subscriptions)
+    }
+    
+    func refreshCountry() {
+        let temp = selectedCountry
+        self.selectedCountry = temp
     }
 }
