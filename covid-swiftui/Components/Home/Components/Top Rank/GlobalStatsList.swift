@@ -7,6 +7,7 @@ import Combine
 
 struct GlobalStatsList: View {
     let countries: [SummaryCountry]
+    let retryHandler: () -> Void
     @Binding var isLoading: Bool
     
     var body: some View {
@@ -20,8 +21,23 @@ struct GlobalStatsList: View {
                 }
                 Spacer()
             } else {
-                List(countries, id: \.self) { item in
-                    GlobalStatsCell(item: item)
+                if countries.isEmpty {
+                    Spacer()
+                    VStack {
+                        Text("No data to display")
+                            .foregroundColor(.gray)
+                        HStack(spacing: 0) {
+                            Text("Try to ")
+                                .foregroundColor(.gray)
+                            Button("retry", action: retryHandler)
+                        }
+                    }
+                    .font(.caption)
+                    Spacer()
+                } else {
+                    List(countries, id: \.self) { item in
+                        GlobalStatsCell(item: item)
+                    }
                 }
             }
         }
@@ -45,8 +61,11 @@ private struct ShimmerCell: View {
 struct GlobalStatsList_Previews: PreviewProvider {
     static var previews: some View {
         GlobalStatsList(countries: [
-            .init(country: "Australia", totalConfirmed: 10, totalDeath: 5)
-        ], isLoading: .constant(true))
+//            .init(country: "Australia", totalConfirmed: 10, totalDeath: 5)
+        ],
+        retryHandler: {},
+        isLoading: .constant(false)
+        )
         .previewLayout(.fixed(width: 300, height: 600))
     }
 }

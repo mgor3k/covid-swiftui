@@ -31,7 +31,6 @@ class HomeViewModel: ObservableObject {
     
     func startFetching() {
         isStatsLoading = true
-        isTopCountriesLoading = true
         
         $selectedCountry
             .flatMap { [unowned self] in
@@ -45,6 +44,17 @@ class HomeViewModel: ObservableObject {
             .assign(to: \.stats, on: self)
             .store(in: &subscriptions)
         
+        fetchTopRank()
+    }
+    
+    func refreshCountry() {
+        let temp = selectedCountry
+        self.selectedCountry = temp
+    }
+    
+    func fetchTopRank() {
+        isTopCountriesLoading = true
+        
         provider
             .summary()
             .receive(on: DispatchQueue.main)
@@ -54,10 +64,5 @@ class HomeViewModel: ObservableObject {
             })
             .assign(to: \.topCountries, on: self)
             .store(in: &subscriptions)
-    }
-    
-    func refreshCountry() {
-        let temp = selectedCountry
-        self.selectedCountry = temp
     }
 }
