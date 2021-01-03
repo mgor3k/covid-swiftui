@@ -5,8 +5,10 @@
 import Foundation
 import Combine
 
+typealias HomeViewModelProvider = TotalCountryStatsProviding & SummaryProviding
+
 class HomeViewModel: ObservableObject {
-    private let provider: TotalCountryStatsProviding & SummaryProviding
+    private let provider: HomeViewModelProvider
     
     private var subscriptions: Set<AnyCancellable> = []
     
@@ -17,7 +19,7 @@ class HomeViewModel: ObservableObject {
     @Published var isStatsLoading = false
     @Published var isTopCountriesLoading = false
     
-    init(provider: TotalCountryStatsProviding & SummaryProviding) {
+    init(provider: HomeViewModelProvider) {
         self.provider = provider
         
         $selectedCountry

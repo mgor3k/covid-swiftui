@@ -41,16 +41,19 @@ struct HomeView: View {
             .edgesIgnoringSafeArea(.bottom)
         }
         .sheet(isPresented: $isPresentingCountries, content: {
-            CountryPickerView(
-                viewModel: .init(
-                    provider: CountryPickerProvider(network: resolver.networking),
-                    selectedCountry: $viewModel.selectedCountry
-                )
-            )
+            makeCountryPicker()
         })
-        .onAppear(perform: {
-            viewModel.startFetching()
-        })
+        .onAppear(perform: viewModel.startFetching)
+    }
+}
+
+private extension HomeView {
+    func makeCountryPicker() -> CountryPickerView {
+        let viewModel = CountryPickerViewModel(
+            provider: CountryPickerProvider(network: resolver.networking),
+            selectedCountry: $viewModel.selectedCountry
+        )
+        return CountryPickerView(viewModel: viewModel)
     }
 }
 
