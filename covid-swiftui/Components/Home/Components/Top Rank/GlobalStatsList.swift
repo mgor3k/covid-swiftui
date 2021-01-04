@@ -35,7 +35,7 @@ struct GlobalStatsList: View {
                     .font(.caption)
                     Spacer()
                 } else {
-                    List(countries, id: \.self) { item in
+                    ForEach(countries, id: \.self) { item in
                         GlobalStatsCell(item: item)
                     }
                 }

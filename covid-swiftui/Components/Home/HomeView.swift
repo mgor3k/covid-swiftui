@@ -10,36 +10,35 @@ struct HomeView: View {
     @ObservedObject var viewModel: HomeViewModel
     @State var isPresentingCountries = false
     
+    @State var rect = CGRect()
+    
     var body: some View {
-        GeometryReader { metrics in
-            VStack(spacing: 0) {
+        ScrollView {
+            GeometryReader { reader in
                 ZStack {
                     Image("banner")
                         .resizable()
+                        .aspectRatio(contentMode: .fill)
                         .overlay(Color.black.opacity(0.3))
-                        .padding(.top, -metrics.safeAreaInsets.top)
+                        .offset(y: -reader.frame(in: .global).minY)
+                        .frame(width: UIScreen.main.bounds.width, height: reader.getParalaxHeight(from: 220))
                     
-                    HomeHeaderView(viewModel: .init(
-                        selectedCountry: viewModel.selectedCountry,
-                        lastUpdated: viewModel.stats.updateDate
-                    ),
-                    onTapped: $isPresentingCountries,
-                    onRefresh: viewModel.refreshCountry
-                    )
-                }
-                .frame(height: metrics.size.height * 0.3)
-                
-                VStack {
-                    // get rid of the metrics in the init
-                    StatsGridView(viewModel: .init(stats: viewModel.stats), itemHeight: metrics.size.width * 0.3, isLoading: viewModel.isStatsLoading)
-                        .frame(width: metrics.size.width * 0.8)
-                        .offset(.init(width: 0, height: -36))
-                    makeTopRank()
-                    Spacer()
+                    makeHeader()
                 }
             }
-            .edgesIgnoringSafeArea(.bottom)
+            .frame(height: 220)
+            
+            VStack {
+                makeStatsGrid()
+                    .frame(width: UIScreen.main.bounds.width * 0.8)
+                    .offset(.init(width: 0, height: -36))
+                makeTopRank()
+                    .padding(.bottom, 16)
+                    .background(Color.white.offset(x: 0, y: -18))
+                Spacer()
+            }
         }
+        .edgesIgnoringSafeArea(.bottom)
         .sheet(isPresented: $isPresentingCountries, content: {
             makeCountryPicker()
         })
@@ -48,6 +47,24 @@ struct HomeView: View {
 }
 
 private extension HomeView {
+    func makeHeader() -> HomeHeaderView {
+        HomeHeaderView(viewModel: .init(
+            selectedCountry: viewModel.selectedCountry,
+            lastUpdated: viewModel.stats.updateDate
+        ),
+        onTapped: $isPresentingCountries,
+        onRefresh: viewModel.refreshCountry
+        )
+    }
+    
+    func makeStatsGrid() -> StatsGridView {
+        StatsGridView(
+            viewModel: .init(stats: viewModel.stats),
+            itemHeight: UIScreen.main.bounds.width * 0.3,
+            isLoading: viewModel.isStatsLoading
+        )
+    }
+    
     func makeTopRank() -> GlobalStatsList {
         GlobalStatsList(
             countries: viewModel.topCountries,
@@ -62,6 +79,12 @@ private extension HomeView {
             selectedCountry: $viewModel.selectedCountry
         )
         return CountryPickerView(viewModel: viewModel)
+    }
+}
+
+private extension GeometryProxy {
+    func getParalaxHeight(from heigth: CGFloat) -> CGFloat {
+        self.frame(in: .global).minY > -heigth ? self.frame(in: .global).minY + heigth : heigth
     }
 }
 

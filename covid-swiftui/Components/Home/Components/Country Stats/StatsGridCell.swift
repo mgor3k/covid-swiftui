@@ -20,9 +20,10 @@ struct StatsGridCell: View {
                         .foregroundColor(.gray)
                     Text("\(item.value)")
                         .foregroundColor(item.valueColor)
-                        .font(.system(size: 28))
+                        .font(.system(size: 50))
                         .bold()
-                        .scaledToFill()
+                        .minimumScaleFactor(0.1)
+                        .lineLimit(1)
                 }
                 Spacer()
             }
