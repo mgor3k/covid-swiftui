@@ -12,15 +12,16 @@ class HomeViewModel: ObservableObject {
     
     private var subscriptions: Set<AnyCancellable> = []
     
-    @Published var selectedCountry = Country(country: "Poland", slug: "poland") // TODO: Temporary
+    @Published var selectedCountry: Country
     @Published var topCountries: [SummaryCountry] = []
     @Published var stats: TotalCountryStats = .empty
     
     @Published var isStatsLoading = false
     @Published var isTopCountriesLoading = false
     
-    init(provider: HomeViewModelProvider) {
+    init(provider: HomeViewModelProvider, selectedCountry: Country) {
         self.provider = provider
+        self.selectedCountry = selectedCountry
         
         $selectedCountry
             .dropFirst()

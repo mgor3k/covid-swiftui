@@ -67,7 +67,7 @@ private extension HomeView {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView(viewModel: .init(provider: MockProvider()))
+        HomeView(viewModel: .init(provider: MockProvider(), selectedCountry: .init(country: "Poland", slug: "poland")))
     }
     
     struct MockProvider: TotalCountryStatsProviding, SummaryProviding {

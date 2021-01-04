@@ -21,6 +21,8 @@
 		BF46490F259F8C6E000AB3BD /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF46490E259F8C6E000AB3BD /* NetworkManager.swift */; };
 		BF68D88525A0A4C100ABC202 /* HomeProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF68D88425A0A4C100ABC202 /* HomeProvider.swift */; };
 		BF68D88925A0A50900ABC202 /* CountryPickerProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF68D88825A0A50900ABC202 /* CountryPickerProvider.swift */; };
+		BF68D89025A38DDE00ABC202 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF68D88F25A38DDE00ABC202 /* Storage.swift */; };
+		BF68D89725A396DC00ABC202 /* WelcomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF68D89625A396DC00ABC202 /* WelcomeScreen.swift */; };
 		BF7879DE2541ECE0006CFD69 /* ShimmerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7879DD2541ECE0006CFD69 /* ShimmerView.swift */; };
 		BF7879E42541F3B7006CFD69 /* HomeHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7879E32541F3B7006CFD69 /* HomeHeaderViewModel.swift */; };
 		BF7879E92541F416006CFD69 /* LastUpdateDateFormatterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7879E82541F416006CFD69 /* LastUpdateDateFormatterTests.swift */; };
@@ -73,6 +75,8 @@
 		BF46490E259F8C6E000AB3BD /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		BF68D88425A0A4C100ABC202 /* HomeProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProvider.swift; sourceTree = "<group>"; };
 		BF68D88825A0A50900ABC202 /* CountryPickerProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryPickerProvider.swift; sourceTree = "<group>"; };
+		BF68D88F25A38DDE00ABC202 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		BF68D89625A396DC00ABC202 /* WelcomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreen.swift; sourceTree = "<group>"; };
 		BF7879DD2541ECE0006CFD69 /* ShimmerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmerView.swift; sourceTree = "<group>"; };
 		BF7879E32541F3B7006CFD69 /* HomeHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderViewModel.swift; sourceTree = "<group>"; };
 		BF7879E82541F416006CFD69 /* LastUpdateDateFormatterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastUpdateDateFormatterTests.swift; sourceTree = "<group>"; };
@@ -140,6 +144,22 @@
 				BFCC26B2259F91AB0043204A /* API */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		BF68D88E25A38DAD00ABC202 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				BF68D88F25A38DDE00ABC202 /* Storage.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		BF68D89525A396D200ABC202 /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				BF68D89625A396DC00ABC202 /* WelcomeScreen.swift */,
+			);
+			path = Welcome;
 			sourceTree = "<group>";
 		};
 		BF6EAE542594E06B00FCC4A1 /* Components */ = {
@@ -217,6 +237,7 @@
 		BFBE7F0B253E138C00DC9A26 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				BF68D88E25A38DAD00ABC202 /* Storage */,
 				BFCC26B3259F91DC0043204A /* Dependencies */,
 				BF46490D259F8C61000AB3BD /* Networking */,
 			);
@@ -227,6 +248,7 @@
 			isa = PBXGroup;
 			children = (
 				BF7879DC2541ECD5006CFD69 /* Common */,
+				BF68D89525A396D200ABC202 /* Welcome */,
 				BFC9903625376BBD00B96B3E /* Home */,
 				BFE07A8D2594CDE500AF393A /* CountryPicker */,
 			);
@@ -510,6 +532,7 @@
 				BF68D88925A0A50900ABC202 /* CountryPickerProvider.swift in Sources */,
 				BF17C4CA2597787400730A81 /* SummaryProvider.swift in Sources */,
 				BFBFAC88252CD44D00F9C0FD /* HomeView.swift in Sources */,
+				BF68D89725A396DC00ABC202 /* WelcomeScreen.swift in Sources */,
 				BF68D88525A0A4C100ABC202 /* HomeProvider.swift in Sources */,
 				BFBFCFFF2545FC0700062C1C /* Country.swift in Sources */,
 				BF2829CC2534D9E900911D5F /* StatsGridView.swift in Sources */,
@@ -519,6 +542,7 @@
 				BF7879DE2541ECE0006CFD69 /* ShimmerView.swift in Sources */,
 				BFFDB51B2594D1F7007E258B /* Endpoints.swift in Sources */,
 				BF4648FC259E815E000AB3BD /* Publisher+Sink.swift in Sources */,
+				BF68D89025A38DDE00ABC202 /* Storage.swift in Sources */,
 				BFBFAC86252CD44D00F9C0FD /* app.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

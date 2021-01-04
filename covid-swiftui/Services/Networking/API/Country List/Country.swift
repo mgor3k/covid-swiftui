@@ -4,7 +4,7 @@
 
 import Foundation
 
-struct Country: Decodable {
+struct Country: Codable {
     let country: String
     let slug: String
     
@@ -19,3 +19,7 @@ extension Country: Identifiable {
 }
 
 extension Country: Equatable { }
+
+extension Country {
+    static let empty = Country(country: "", slug: "")
+}
